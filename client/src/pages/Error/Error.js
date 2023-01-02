@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Error = () => {
-  document.title = "Better Aim | Error 404";
+  document.title = "Jadur Jini";
 
   return (
     <div className="d-flex flex-column align-items-center justify-content-center">
