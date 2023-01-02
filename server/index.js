@@ -21,7 +21,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     const usersCollection = client.db("jadurjinidb").collection("users");
-    const reviewCollection = client.db("betterAim").collection("reviews");
+    const reviewCollection = client.db("jadurjinidb").collection("reviews");
 
     app.get("/users", async (req, res) => {
       const query = {};
