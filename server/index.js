@@ -20,10 +20,17 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    const serviceCollection = client.db("betterAim").collection("services");
+    const usersCollection = client.db("jadurjinidb").collection("users");
     const reviewCollection = client.db("betterAim").collection("reviews");
 
-    // app.get("/myReviews/:id", async (req, res) => {
+    app.get("/users", async (req, res) => {
+      const query = {};
+      const cursor = usersCollection.find(query);
+      const users = await cursor.toArray();
+      res.send(users);
+    });
+
+    // app.get("/reviews", async (req, res) => {
     //   const id = req.params.id;
     //   const query = { _id: ObjectId(id) };
     //   const cursor = reviewCollection.find(query);
