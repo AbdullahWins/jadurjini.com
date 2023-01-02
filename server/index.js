@@ -21,13 +21,28 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     const usersCollection = client.db("jadurjinidb").collection("users");
-    const reviewCollection = client.db("jadurjinidb").collection("reviews");
+    const salesCollection = client.db("jadurjinidb").collection("sales");
+    const productsCollection = client.db("jadurjinidb").collection("products");
 
     app.get("/users", async (req, res) => {
       const query = {};
       const cursor = usersCollection.find(query);
       const users = await cursor.toArray();
       res.send(users);
+    });
+
+    app.get("/sales", async (req, res) => {
+      const query = {};
+      const cursor = salesCollection.find(query);
+      const sales = await cursor.toArray();
+      res.send(sales);
+    });
+
+    app.get("/products", async (req, res) => {
+      const query = {};
+      const cursor = productsCollection.find(query);
+      const products = await cursor.toArray();
+      res.send(products);
     });
 
     // app.get("/reviews", async (req, res) => {
