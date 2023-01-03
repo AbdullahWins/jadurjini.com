@@ -28,7 +28,7 @@ const Register = () => {
           placeholder="Password"
           className="input input-bordered w-full mb-4 font-bold"
         />
-        <button className="btn w-full bg-gradient-to-r from-cyan-300 to-blue-600">
+        <button className="btn w-full bg-gradient-to-r from-blue-500 to-cyan-400">
           Sign Up
         </button>
         <p className="text-xl text-center pt-4">
