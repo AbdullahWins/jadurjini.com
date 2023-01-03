@@ -21,7 +21,7 @@ const Login = () => {
           placeholder="Password"
           className="input input-bordered w-full my-4 font-bold"
         />
-        <button className="btn w-full bg-gradient-to-r from-blue-500 to-cyan-400">
+        <button className="btn w-full bg-gradient-to-r from-blue-500 to-cyan-400 border-none">
           Login
         </button>
         <p className="text-xl text-center pt-4">
