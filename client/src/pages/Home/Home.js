@@ -62,6 +62,13 @@ const Home = () => {
       image: food1,
       rating: 5.0,
     },
+    {
+      foodName: "Cake",
+      price: 250,
+      time: "2 days ago",
+      image: food2,
+      rating: 3.0,
+    },
   ];
 
   return (
@@ -119,6 +126,27 @@ const Home = () => {
           {bannerSlider.map((slider, i) => (
             <div key={i} className="carousel-item w-full">
               <img src={slider} className="rounded-box w-full" alt="" />
+            </div>
+          ))}
+        </div>
+      </section>
+      <section>
+        <h2 className="text-xl pl-2 font-bold">Recommendations</h2>
+        <div className=" grid grid-cols-2 gap-4 p-2">
+          {burgerDetails.map((slide) => (
+            <div className="card w-full bg-base-100 shadow-xl">
+              <figure>
+                <img
+                  className="h-32 w-48"
+                  src={slide.image}
+                  alt="foods again"
+                />
+              </figure>
+              <div className="card-body p-2">
+                <p className="font-bold">{slide.foodName}</p>
+                <p>BDT {slide.price}</p>
+                <p>{slide.time}</p>
+              </div>
             </div>
           ))}
         </div>
