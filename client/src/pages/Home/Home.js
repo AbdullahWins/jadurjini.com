@@ -14,6 +14,7 @@ import food1 from "../../assets/food/cake.jpg";
 import food2 from "../../assets/food/fuchka.jpg";
 import food3 from "../../assets/food/sandwitch.jpg";
 import food4 from "../../assets/food/water.jpg";
+import BottomNav from "../../components/HomeComponents/BottomNav";
 
 const Home = () => {
   const bannerSlider = [slide1, slide2, slide3, slide4, slide5, slide6];
@@ -26,15 +27,45 @@ const Home = () => {
     { categoryImg: category2, categoryName: "Food" },
   ];
   const burgerDetails = [
-    { foodName: "Burger", price: 250, time: "2 days ago", image: food1 },
-    { foodName: "Fuchka", price: 250, time: "3 days ago", image: food2 },
-    { foodName: "Sandwitch", price: 250, time: "1 days ago", image: food3 },
-    { foodName: "Cake", price: 250, time: "2 days ago", image: food4 },
-    { foodName: "Water", price: 250, time: "5 days ago", image: food1 },
+    {
+      foodName: "Burger",
+      price: 250,
+      time: "2 days ago",
+      image: food1,
+      rating: 4.3,
+    },
+    {
+      foodName: "Fuchka",
+      price: 250,
+      time: "3 days ago",
+      image: food2,
+      rating: 2.4,
+    },
+    {
+      foodName: "Sandwitch",
+      price: 250,
+      time: "1 days ago",
+      image: food3,
+      rating: 4.6,
+    },
+    {
+      foodName: "Cake",
+      price: 250,
+      time: "2 days ago",
+      image: food4,
+      rating: 3.0,
+    },
+    {
+      foodName: "Water",
+      price: 250,
+      time: "5 days ago",
+      image: food1,
+      rating: 5.0,
+    },
   ];
 
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <HomeNav></HomeNav>
       <section>
         <div className="carousel carousel-center w-full p-2 space-x-2 h-36">
@@ -47,11 +78,11 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Explore by category</h2>
-        <div className="carousel carousel-center p-2 space-x-3">
+        <div className="flex flex-row overflow-scroll p-2 space-x-3">
           {categorySlider.map((slider, i) => (
             <div
               key={i}
-              className="flex flex-col items-center  justify-center text-center carousel-item bg-gray-400 rounded-md p-4 h-10 w-10"
+              className="flex flex-col items-center justify-center text-center carousel-item bg-gray-400 rounded-md p-4 h-10 w-10"
             >
               <img
                 src={slider.categoryImg}
@@ -65,7 +96,7 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Order Again</h2>
-        <div className="carousel carousel-center w-full p-2 space-x-1 h-22">
+        <div className="flex flex-row overflow-scroll w-full p-2 space-x-1 h-22">
           {burgerDetails.map((slider, i) => (
             <div key={i} className="carousel-item w-1/2">
               <div className="card card-side bg-slate-200 ">
@@ -82,6 +113,24 @@ const Home = () => {
           ))}
         </div>
       </section>
+      <section>
+        <h2 className="text-xl pl-2 font-bold">Offers</h2>
+        <div className="carousel carousel-center w-full p-2 space-x-2 h-36">
+          {bannerSlider.map((slider, i) => (
+            <div key={i} className="carousel-item w-full">
+              <img src={slider} className="rounded-box w-full" alt="" />
+            </div>
+          ))}
+        </div>
+      </section>
+      <div
+        className="fixed
+             inset-x-0
+             bottom-0
+             p-4"
+      >
+        <BottomNav></BottomNav>
+      </div>
     </div>
   );
 };
