@@ -1,57 +1,34 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import login from "../../assets/img/login.png";
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center">
-      <div class="w-full max-w-xs">
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div class="mb-4">
-            <label
-              class="block text-gray-700 text-sm font-bold mb-2"
-              for="username"
-            >
-              Username
-            </label>
-            <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="username"
-              type="text"
-              placeholder="Username"
-            ></input>
-          </div>
-          <div class="mb-6">
-            <label
-              class="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
-            >
-              Password
-            </label>
-            <input
-              class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              id="password"
-              type="password"
-              placeholder="******************"
-            ></input>
-            <p class="text-red-500 text-xs italic">Please choose a password.</p>
-          </div>
-          <div class="flex items-center justify-between">
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-            >
-              Sign In
-            </button>
-            <a
-              class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              href="./Login.js"
-            >
-              Forgot Password?
-            </a>
-          </div>
-        </form>
-        <p class="text-center text-gray-500 text-xs">
-          &copy;2023 Jadur Jini. All rights reserved.
+    <div className="md:flex h-screen md:justify-center md:items-center mx-2">
+      <div className="card lg:w-96 bg-base-100">
+        <h2 className="text-center text-2xl font-bold pt-4">Welcome</h2>
+        <figure className="px-5">
+          <img src={login} alt="login img" className="rounded-xl" />
+        </figure>
+        <input
+          type="email"
+          placeholder="Email"
+          className="input input-bordered w-full font-bold"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="input input-bordered w-full my-4 font-bold"
+        />
+        <button className="btn w-full bg-gradient-to-r from-cyan-300 to-blue-600">
+          Login
+        </button>
+        <p className="text-xl text-center pt-4">
+          Don't have an account?
+          <span className="text-bold text-lime-600">
+            <Link to="/register"> Sign Up</Link>
+          </span>
         </p>
       </div>
     </div>

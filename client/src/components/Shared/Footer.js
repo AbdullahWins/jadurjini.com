@@ -2,10 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="d-flex align-items-center justify-content-center p-5">
+    <div>
       <p>
-        Crafted by
-        <a href="https://github.com/AbdullahWins/"> AbdullahWins</a>
+        <a href="https://github.com/AbdullahWins/"> footer</a>
       </p>
     </div>
   );
