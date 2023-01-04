@@ -5,6 +5,7 @@ import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Shops from "../pages/Shops/Shops";
 
 export const routes = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const routes = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/shops",
+        element: <Shops></Shops>,
       },
     ],
   },

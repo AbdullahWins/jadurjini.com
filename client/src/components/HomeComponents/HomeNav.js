@@ -36,7 +36,7 @@ const HomeNav = () => {
       </div>
       <div className="navbar-center">
         <p className="text-center">
-          <i class="fa-solid fa-location-dot"></i> New Market, Rajshahi
+          <i className="fa-solid fa-location-dot"></i> New Market, Rajshahi
         </p>
       </div>
       <div className="navbar-end">

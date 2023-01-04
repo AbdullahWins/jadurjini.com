@@ -1,5 +1,6 @@
 import React from "react";
 import HomeNav from "../../components/HomeComponents/HomeNav";
+import BottomNav from "../../components/HomeComponents/BottomNav";
 import slide1 from "../../assets/slides/slide1.png";
 import slide2 from "../../assets/slides/slide2.jpg";
 import slide3 from "../../assets/slides/slide3.jpg";
@@ -14,7 +15,6 @@ import food1 from "../../assets/food/cake.jpg";
 import food2 from "../../assets/food/fuchka.jpg";
 import food3 from "../../assets/food/sandwitch.jpg";
 import food4 from "../../assets/food/water.jpg";
-import BottomNav from "../../components/HomeComponents/BottomNav";
 
 const Home = () => {
   const bannerSlider = [slide1, slide2, slide3, slide4, slide5, slide6];
@@ -103,7 +103,7 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Order Again</h2>
-        <div className="flex flex-row overflow-scroll w-full p-2 gap-4 h-22 ">
+        <div className="flex flex-row overflow-auto w-full p-2 gap-4 h-22 ">
           {burgerDetails.map((slider, i) => (
             <div key={i} className="w-1/2 md:w-full">
               <div className="card card-side bg-slate-200 ">
@@ -136,10 +136,12 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Recommendations</h2>
-        <div className=" grid grid-cols-2 md:grid-cols-
-         gap-4 p-2">
-          {burgerDetails.map((slide) => (
-            <div className="card w-full bg-base-100 shadow-xl">
+        <div
+          className=" grid grid-cols-2 md:grid-cols-
+         gap-4 p-2"
+        >
+          {burgerDetails.map((slide, i) => (
+            <div key={i} className="card w-full bg-base-100 shadow-xl">
               <figure>
                 <img
                   className="h-32 w-48 md:h-96 md:w-full"
