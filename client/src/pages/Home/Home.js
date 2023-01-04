@@ -75,7 +75,7 @@ const Home = () => {
     <div className="flex flex-col h-screen">
       <HomeNav></HomeNav>
       <section>
-        <div className="carousel carousel-center w-full p-2 space-x-2 h-36">
+        <div className="carousel carousel-center w-full p-2 space-x-2 h-36 md:h-96">
           {bannerSlider.map((slider, i) => (
             <div key={i} className="carousel-item w-full">
               <img src={slider} className="rounded-box w-full" alt="" />
@@ -85,11 +85,11 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Explore by category</h2>
-        <div className="flex flex-row overflow-scroll p-2 space-x-3">
+        <div className="flex flex-row overflow-auto over p-2">
           {categorySlider.map((slider, i) => (
             <div
               key={i}
-              className="flex flex-col items-center justify-center text-center carousel-item bg-gray-400 rounded-md p-4 h-10 w-10"
+              className="flex flex-col items-center justify-center text-center carousel-item bg-gray-400 rounded-md p-4 m-2 h-10 w-10 md:h-52 md:w-52"
             >
               <img
                 src={slider.categoryImg}
@@ -103,14 +103,18 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Order Again</h2>
-        <div className="flex flex-row overflow-scroll w-full p-2 space-x-1 h-22">
+        <div className="flex flex-row overflow-scroll w-full p-2 gap-4 h-22 ">
           {burgerDetails.map((slider, i) => (
-            <div key={i} className="carousel-item w-1/2">
+            <div key={i} className="w-1/2 md:w-full">
               <div className="card card-side bg-slate-200 ">
                 <figure>
-                  <img className="w-24 h-24" src={slider.image} alt="food" />
+                  <img
+                    className="w-24 h-24 md:w-96 md:h-96"
+                    src={slider.image}
+                    alt="food"
+                  />
                 </figure>
-                <div className="card-body p-0 pl-2 flex flex-col justify-center">
+                <div className="card-body p-0 pl-2 flex flex-col justify-center md:w-96">
                   <span className="card-title text-xs">{slider.foodName}</span>
                   <span className="text-xs">{slider.price}</span>
                   <span className="text-xs">{slider.time}</span>
@@ -122,7 +126,7 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Offers</h2>
-        <div className="carousel carousel-center w-full p-2 space-x-2 h-36">
+        <div className="carousel carousel-center w-full p-2 space-x-2 h-36 md:h-96">
           {bannerSlider.map((slider, i) => (
             <div key={i} className="carousel-item w-full">
               <img src={slider} className="rounded-box w-full" alt="" />
@@ -132,12 +136,13 @@ const Home = () => {
       </section>
       <section>
         <h2 className="text-xl pl-2 font-bold">Recommendations</h2>
-        <div className=" grid grid-cols-2 gap-4 p-2">
+        <div className=" grid grid-cols-2 md:grid-cols-
+         gap-4 p-2">
           {burgerDetails.map((slide) => (
             <div className="card w-full bg-base-100 shadow-xl">
               <figure>
                 <img
-                  className="h-32 w-48"
+                  className="h-32 w-48 md:h-96 md:w-full"
                   src={slide.image}
                   alt="foods again"
                 />
