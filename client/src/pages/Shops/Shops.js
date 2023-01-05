@@ -52,6 +52,7 @@ const Shops = () => {
               <div class="absolute w-full md:py-6 bottom-0 inset-x-0 bg-white opacity-90 text-xs pl-1 md:pl-3">
                 <p className="font-bold text-lg md:text-2xl">{shop.shopName}</p>
                 <p className="font-bold text-lg md:text-2xl">
+                  <i class="fa-solid fa-star text-amber-500"></i>
                   {shop.shopRating}
                 </p>
               </div>
