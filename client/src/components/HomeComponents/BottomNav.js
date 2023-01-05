@@ -21,10 +21,12 @@ const BottomNav = () => {
         </Link>
       </div>
       <div>
-        <p>
-          <i className="fa-solid fa-user"></i>
-        </p>
-        <p>Profile</p>
+        <Link to="/profile">
+          <p>
+            <i className="fa-solid fa-user"></i>
+          </p>
+          <p>Profile</p>
+        </Link>
       </div>
     </div>
   );

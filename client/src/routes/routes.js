@@ -6,6 +6,7 @@ import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import Profile from "../pages/Profile/Profile";
 import Register from "../pages/Register/Register";
 import Shops from "../pages/Shops/Shops";
 
@@ -41,6 +42,10 @@ export const routes = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart></Cart>,
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>,
       },
     ],
   },
