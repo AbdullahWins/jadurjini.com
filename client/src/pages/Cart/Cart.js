@@ -75,11 +75,11 @@ const Cart = () => {
               <span className="font-bold">Price: {product.price}</span>
               <div className="flex items-center justify-end col-span-2">
                 <button>
-                  <i class="fa-solid fa-minus"></i>
+                  <i className="fa-solid fa-minus"></i>
                 </button>
                 <span className="px-2">1</span>
                 <button>
-                  <i class="fa-solid fa-plus"></i>
+                  <i className="fa-solid fa-plus"></i>
                 </button>
               </div>
             </div>

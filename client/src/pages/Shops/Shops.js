@@ -22,12 +22,10 @@ const Shops = () => {
   ];
   return (
     <div>
-      <div className="flex justify-center mt-4">
-        <select className="select w-11/12 bg-cyan-400 border-none">
-          <option disabled selected>
-            Choose your location
-          </option>
-          <option>Homer</option>
+      <div className="flex align-center justify-center mt-4">
+        <select className="select w-11/12 bg-cyan-400 border-none truncate ">
+          <option>Choose your location</option>
+          <option>Home</option>
           <option>Marge</option>
           <option>Bart</option>
           <option>Lisa</option>
@@ -42,17 +40,17 @@ const Shops = () => {
           {shopsDetails.map((shop, i) => (
             <div
               key={i}
-              class="relative w-40 h-32 md:h-80 md:w-96 rounded-xl bordered overflow-hidden"
+              className="relative w-40 h-32 md:h-80 md:w-96 rounded-xl bordered overflow-hidden"
             >
               <img
                 src={shop.shopImage}
                 alt="Avatar"
-                class="object-cover w-full h-full"
+                className="object-cover w-full h-full"
               />
-              <div class="absolute w-full md:py-6 bottom-0 inset-x-0 bg-white opacity-90 text-xs pl-1 md:pl-3">
+              <div className="absolute w-full md:py-6 bottom-0 inset-x-0 bg-white opacity-90 text-xs pl-1 md:pl-3">
                 <p className="font-bold text-lg md:text-2xl">{shop.shopName}</p>
                 <p className="font-bold text-lg md:text-2xl">
-                  <i class="fa-solid fa-star text-amber-500"></i>
+                  <i className="fa-solid fa-star text-amber-500"></i>
                   {shop.shopRating}
                 </p>
               </div>

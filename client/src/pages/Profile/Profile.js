@@ -14,7 +14,7 @@ const Profile = () => {
           <span className="text-lg font-bold">Profile</span>
         </div>
         <p>
-          <i class="fa-solid fa-pen-to-square text-cyan-500"></i>
+          <i className="fa-solid fa-pen-to-square text-cyan-500"></i>
         </p>
       </section>
       <section className="flex flex-col items-center justify-center p-4">
@@ -31,16 +31,16 @@ const Profile = () => {
       </section>
       <section className="font-bold pt-4 flex flex-col gap-4">
         <p>
-          <i class="fa-solid fa-envelope"></i> Message
+          <i className="fa-solid fa-envelope"></i> Message
         </p>
         <p>
-          <i class="fa-solid fa-gear"></i> Settings
+          <i className="fa-solid fa-gear"></i> Settings
         </p>
         <p>
-          <i class="fa-solid fa-circle-info"></i> About Us
+          <i className="fa-solid fa-circle-info"></i> About Us
         </p>
         <p>
-          <i class="fa-solid fa-star"></i> Rate
+          <i className="fa-solid fa-star"></i> Rate
         </p>
       </section>
       <div

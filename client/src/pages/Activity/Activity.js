@@ -7,42 +7,41 @@ import food4 from "../../assets/food/water.jpg";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 
 const Activity = () => {
-  const Activity = [
+  const activityArray = [
     {
       productName: "Men's Sweatshirt",
       price: 1550,
       image: food1,
-      size: "XL",
+      shopName: "Zara Fashion",
+      shopLocation: "Dhanmondi, Bangladesh",
     },
     {
-      productName: "Jeans",
-      price: 1250,
+      productName: "Men's Sweatshirt",
+      price: 1550,
       image: food2,
-      size: "XL",
+      shopName: "Zara Fashion",
+      shopLocation: "Dhanmondi, Bangladesh",
     },
     {
-      productName: "Shirt",
-      price: 250,
+      productName: "Men's Sweatshirt",
+      price: 1550,
       image: food3,
-      size: "XL",
+      shopName: "Zara Fashion",
+      shopLocation: "Dhanmondi, Bangladesh",
     },
     {
-      productName: "Pant",
-      price: 2500,
+      productName: "Men's Sweatshirt",
+      price: 1550,
       image: food4,
-      size: "XL",
+      shopName: "Zara Fashion",
+      shopLocation: "Dhanmondi, Bangladesh",
     },
     {
-      productName: "Coat",
-      price: 2000,
+      productName: "Men's Sweatshirt",
+      price: 1550,
       image: food1,
-      size: "XL",
-    },
-    {
-      productName: "Burger",
-      price: 2050,
-      image: food3,
-      size: "XL",
+      shopName: "Zara Fashion",
+      shopLocation: "Dhanmondi, Bangladesh",
     },
   ];
   return (
@@ -55,7 +54,7 @@ const Activity = () => {
           <span className="text-lg font-bold">Activity</span>
         </div>
         <p>
-          <i class="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars"></i>
         </p>
       </section>
       <section>
@@ -69,7 +68,7 @@ const Activity = () => {
               <div className="flex items-center justify-between font-bold">
                 <span className="text-lg">Burger</span>
                 <span>
-                  <i class="fa-solid fa-star text-amber-500"></i>4.5
+                  <i className="fa-solid fa-star text-amber-500"></i>4.5
                 </span>
               </div>
               <span className="pb-3 text-xs">BDT 150</span>
@@ -78,6 +77,33 @@ const Activity = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        {activityArray.map((activity, i) => (
+          <div
+            key={i}
+            className="card card-side h-28 w-full bg-red-100 shadow-xl my-4"
+          >
+            <figure>
+              <img
+                className="h-32 w-24 rounded-xl"
+                src={activity.image}
+                alt="Movie"
+              />
+            </figure>
+            <div className="card-body flex justify-center gap-0 p-2 text-sm">
+              <span className="font-bold text-lg">{activity.productName}</span>
+              <span className="pb-2">BDT {activity.price}</span>
+              <span>{activity.shopName}</span>
+              <span>{activity.shopLocation}</span>
+            </div>
+            <div className="card-actions flex items-center justify-end pr-4">
+              <button>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+        ))}
       </section>
       <div
         className="fixed
