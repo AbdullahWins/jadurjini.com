@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import productImage from "../../assets/category/category1.png";
 
 const ProductDetails = () => {
@@ -6,7 +7,9 @@ const ProductDetails = () => {
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
         <p>
-          <i className="fa-solid fa-angle-left"></i>
+          <Link to="/shop">
+            <i className="fa-solid fa-angle-left"></i>
+          </Link>
         </p>
         <div className="flex gap-4">
           <p>
