@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
+import Activity from "../pages/Activity/Activity";
 import Cart from "../pages/Cart/Cart";
 import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
@@ -46,6 +47,10 @@ export const routes = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "/activity",
+        element: <Activity></Activity>,
       },
     ],
   },

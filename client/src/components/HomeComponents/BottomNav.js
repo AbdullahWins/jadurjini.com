@@ -13,7 +13,7 @@ const BottomNav = () => {
         </Link>
       </div>
       <div>
-        <Link to="/cart">
+        <Link to="/activity">
           <p>
             <i className="fa-solid fa-chart-line"></i>
           </p>
