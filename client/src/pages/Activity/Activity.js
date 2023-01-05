@@ -63,11 +63,7 @@ const Activity = () => {
         <div className="flex items-center justify-center">
           <div className="card shadow-xl bg-red-100">
             <figure>
-              <img
-                className="rounded-xl"
-                src="https://placeimg.com/400/225/arch"
-                alt="Shoes"
-              />
+              <img className="rounded-xl h-72 w-96" src={food1} alt="food" />
             </figure>
             <div className="card-body text-sm gap-0 p-2">
               <div className="flex items-center justify-between font-bold">
