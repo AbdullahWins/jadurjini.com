@@ -1,49 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import food1 from "../../assets/food/cake.jpg";
-import food2 from "../../assets/food/fuchka.jpg";
-import food3 from "../../assets/food/sandwitch.jpg";
-import food4 from "../../assets/food/water.jpg";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 
 const Activity = () => {
-  const activityArray = [
-    {
-      productName: "Men's Sweatshirt",
-      price: 1550,
-      image: food1,
-      shopName: "Zara Fashion",
-      shopLocation: "Dhanmondi, Bangladesh",
-    },
-    {
-      productName: "Men's Sweatshirt",
-      price: 1550,
-      image: food2,
-      shopName: "Zara Fashion",
-      shopLocation: "Dhanmondi, Bangladesh",
-    },
-    {
-      productName: "Men's Sweatshirt",
-      price: 1550,
-      image: food3,
-      shopName: "Zara Fashion",
-      shopLocation: "Dhanmondi, Bangladesh",
-    },
-    {
-      productName: "Men's Sweatshirt",
-      price: 1550,
-      image: food4,
-      shopName: "Zara Fashion",
-      shopLocation: "Dhanmondi, Bangladesh",
-    },
-    {
-      productName: "Men's Sweatshirt",
-      price: 1550,
-      image: food1,
-      shopName: "Zara Fashion",
-      shopLocation: "Dhanmondi, Bangladesh",
-    },
-  ];
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const url = `http://localhost:5000/testProducts`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
@@ -79,7 +49,7 @@ const Activity = () => {
         </div>
       </section>
       <section>
-        {activityArray.map((activity, i) => (
+        {products.map((product, i) => (
           <div
             key={i}
             className="card card-side h-28 w-full bg-red-100 shadow-xl my-4"
@@ -87,19 +57,19 @@ const Activity = () => {
             <figure>
               <img
                 className="h-32 w-24 rounded-xl"
-                src={activity.image}
+                src={product.productImage}
                 alt="Movie"
               />
             </figure>
             <div className="card-body flex justify-center gap-0 p-2 text-sm">
-              <span className="font-bold text-lg">{activity.productName}</span>
-              <span className="pb-2">BDT {activity.price}</span>
-              <span>{activity.shopName}</span>
-              <span>{activity.shopLocation}</span>
+              <span className="font-bold text-lg">{product.productName}</span>
+              <span className="pb-2">BDT {product.productPrice}</span>
+              <span>{product.shopName}</span>
+              <span>{product.shopLocation}</span>
             </div>
             <div className="card-actions flex items-center justify-end pr-4">
               <button>
-                <i class="fa-solid fa-angle-right"></i>
+                <i className="fa-solid fa-angle-right"></i>
               </button>
             </div>
           </div>

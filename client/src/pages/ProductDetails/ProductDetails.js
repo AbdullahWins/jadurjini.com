@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import productImage from "../../assets/category/category1.png";
 
 const ProductDetails = () => {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    // const url = `http://localhost:5000/testProductDetails?product=${product?._id}`;
+    fetch('http://localhost:5000/testProductDetails')
+      .then((res) => res.json())
+      .then((data) => setProduct(data))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(product)
+
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">

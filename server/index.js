@@ -23,6 +23,15 @@ async function run() {
     const usersCollection = client.db("jadurjinidb").collection("users");
     const salesCollection = client.db("jadurjinidb").collection("sales");
     const productsCollection = client.db("jadurjinidb").collection("products");
+    const testProductsCollection = client
+      .db("jadurjinidb")
+      .collection("testProducts");
+    const testShopsCollection = client
+      .db("jadurjinidb")
+      .collection("testShops");
+    const testFoodsCollection = client
+      .db("jadurjinidb")
+      .collection("testFoods");
 
     app.get("/users", async (req, res) => {
       const query = {};
@@ -44,6 +53,45 @@ async function run() {
       const products = await cursor.toArray();
       res.send(products);
     });
+
+    app.get("/testProducts", async (req, res) => {
+      const query = {};
+      const cursor = testProductsCollection.find(query);
+      const products = await cursor.toArray();
+      res.send(products);
+    });
+
+    app.get("/testShops", async (req, res) => {
+      const query = {};
+      const cursor = testShopsCollection.find(query);
+      const shops = await cursor.toArray();
+      res.send(shops);
+    });
+
+    app.get("/testFoods", async (req, res) => {
+      const query = {};
+      const cursor = testFoodsCollection.find(query);
+      const food = await cursor.toArray();
+      res.send(food);
+    });
+
+    // // temporary to update price field on appointment options
+    // app.get("/addNewField", async (req, res) => {
+    //   const filter = {};
+    //   const options = { upsert: true };
+    //   const updatedDoc = {
+    //     $set: {
+    //       shopName: "AArong",
+    //       shopLocation: "Rajshahi, Bangladesh",
+    //     },
+    //   };
+    //   const result = await testProductsCollection.updateMany(
+    //     filter,
+    //     updatedDoc,
+    //     options
+    //   );
+    //   res.send(result);
+    // });
 
     // app.get("/reviews", async (req, res) => {
     //   const id = req.params.id;

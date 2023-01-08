@@ -1,25 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BottomNav from "../../components/HomeComponents/BottomNav";
-import food1 from "../../assets/food/cake.jpg";
-import food2 from "../../assets/food/fuchka.jpg";
-import food3 from "../../assets/food/sandwitch.jpg";
-import food4 from "../../assets/food/water.jpg";
 
 const Shops = () => {
-  const shopsDetails = [
-    { shopImage: food1, shopName: "Aarong", shopRating: "3.5" },
-    { shopImage: food2, shopName: "Sailor", shopRating: "3.0" },
-    { shopImage: food3, shopName: "Zara", shopRating: "4.5" },
-    { shopImage: food4, shopName: "Richman", shopRating: "5.0" },
-    { shopImage: food1, shopName: "Dorjibari", shopRating: "4.5" },
-    { shopImage: food2, shopName: "Khacha", shopRating: "3.0" },
-    { shopImage: food1, shopName: "Aarong", shopRating: "3.5" },
-    { shopImage: food2, shopName: "Sailor", shopRating: "3.0" },
-    { shopImage: food3, shopName: "Zara", shopRating: "4.5" },
-    { shopImage: food4, shopName: "Richman", shopRating: "5.0" },
-    { shopImage: food1, shopName: "Dorjibari", shopRating: "4.5" },
-    { shopImage: food2, shopName: "Khacha", shopRating: "3.0" },
-  ];
+  const [shops, setShops] = useState([]);
+
+  useEffect(() => {
+    const url = `http://localhost:5000/testShops`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setShops(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div>
       <div className="flex align-center justify-center mt-4">
@@ -37,7 +29,7 @@ const Shops = () => {
       </p>
       <div className="flex items-center justify-center">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {shopsDetails.map((shop, i) => (
+          {shops.map((shop, i) => (
             <div
               key={i}
               className="relative w-40 h-32 md:h-80 md:w-96 rounded-xl bordered overflow-hidden"
