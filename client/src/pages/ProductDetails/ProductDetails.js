@@ -8,7 +8,7 @@ const ProductDetails = () => {
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
         <p>
-          <Link to="/shops">
+          <Link to={`/category/${product.productCategory}`}>
             <i className="fa-solid fa-angle-left"></i>
           </Link>
         </p>

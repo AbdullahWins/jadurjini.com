@@ -35,10 +35,6 @@ export const routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/shops",
-        element: <Shops></Shops>,
-      },
-      {
         path: "/shops/:shopName",
         element: <Shop></Shop>,
         loader: ({ params }) =>
@@ -52,7 +48,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/category/:categoryName",
-        element: <Category></Category>,
+        element: <Shops></Shops>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/category/${params.categoryName}`),
       },

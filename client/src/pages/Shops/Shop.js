@@ -13,7 +13,7 @@ import category3 from "../../assets/category/category3.png";
 import category4 from "../../assets/category/category4.png";
 
 const Shop = () => {
-  const shop = useLoaderData();
+  const shops = useLoaderData();
   const bannerSlider = [slide1, slide2, slide3, slide4, slide5, slide6];
   const categorySlider = [
     { categoryImg: category1, categoryName: "Hoodie" },
@@ -28,8 +28,8 @@ const Shop = () => {
     <div className="flex flex-col">
       <section>
         <div className="font-bold p-2">
-          <h2>{shop[0].shopName}</h2>
-          <p>{shop[0].shopLocation}</p>
+          <h2>{shops[0].shopName}</h2>
+          <p>{shops[0].shopLocation}</p>
         </div>
         <div className="carousel carousel-center w-full p-2 space-x-2 h-36 md:h-96">
           {bannerSlider.map((slider, i) => (
@@ -62,7 +62,7 @@ const Shop = () => {
           </div>
         </section>
       </section>
-      {shop.map((product, i) => (
+      {shops.map((product, i) => (
         <Product key={i} product={product}></Product>
       ))}
     </div>

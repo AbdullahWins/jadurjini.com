@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 
 const Shops = () => {
-  const [shops, setShops] = useState([]);
+  const shops = useLoaderData();
+  // const [shops, setShops] = useState([]);
 
-  useEffect(() => {
-    const url = `http://localhost:5000/testShops`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setShops(data))
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   const url = `http://localhost:5000/shops/${shopName}`;
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => setShops(data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <div>
