@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import productImage from "../../assets/category/category1.png";
+import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 const ProductDetails = () => {
-  const [product, setProduct] = useState([]);
-
-  useEffect(() => {
-    // const url = `http://localhost:5000/testProductDetails?product=${product?._id}`;
-    fetch('http://localhost:5000/testProductDetails')
-      .then((res) => res.json())
-      .then((data) => setProduct(data))
-      .catch((err) => console.log(err));
-  }, []);
-  console.log(product)
+  const product = useLoaderData();
 
   return (
     <div className="relative px-4 h-screen">
@@ -33,7 +23,7 @@ const ProductDetails = () => {
       </section>
       <section>
         <div className="flex items-center justify-center">
-          <img className="w-10/12" src={productImage} alt="" />
+          <img className="w-10/12" src={product.productImage} alt="" />
         </div>
         <div className="flex items-center justify-between py-4">
           <div>
@@ -44,7 +34,7 @@ const ProductDetails = () => {
             <p>
               <i className="fa-solid fa-star text-amber-500"></i>4.5
             </p>
-            <p className="font-bold">BDT 1500</p>
+            <p className="font-bold">BDT {product.productPrice}</p>
           </div>
         </div>
       </section>
@@ -71,25 +61,7 @@ const ProductDetails = () => {
       </section>
       <section className="py-4">
         <p className="font-bold">Description:</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          praesentium odit porro animi consequatur dicta dolore provident fuga
-          culpa perspiciatis. Aperiam rem odit animi. Et fugiat ex repudiandae
-          assumenda labore autem, maxime eligendi. Incidunt, vitae blanditiis at
-          illo culpa dolorem quae ea magni! Odit, repudiandae iure ab rem
-          veritatis deleniti sed quisquam dignissimos. Explicabo rem sint
-          tempore illo eos eaque, consectetur odit facere a numquam excepturi
-          non itaque natus ab sunt praesentium dolorum totam officiis, voluptate
-          odio dicta, vitae in incidunt. Aliquam dolore illo, assumenda est
-          architecto aperiam odio vero fugiat. Praesentium iste hic quae
-          recusandae porro voluptates, alias, magni perspiciatis ipsam
-          reprehenderit sunt voluptatibus. Facilis omnis ad voluptas maiores
-          blanditiis, repellat veniam aut distinctio provident quo at vero non!
-          Quidem possimus quibusdam quod voluptates hic mollitia quam quia,
-          assumenda tenetur, fugiat labore? Autem exercitationem est fugit odit
-          delectus, necessitatibus nam accusamus eligendi magnam, modi, pariatur
-          perferendis iste sit. Non!
-        </p>
+        <p>{product.productDescription}</p>
       </section>
       <section
         className="fixed

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 
 const Shops = () => {
@@ -34,18 +35,22 @@ const Shops = () => {
               key={i}
               className="relative w-40 h-32 md:h-80 md:w-96 rounded-xl bordered overflow-hidden"
             >
-              <img
-                src={shop.shopImage}
-                alt="Avatar"
-                className="object-cover w-full h-full"
-              />
-              <div className="absolute w-full md:py-6 bottom-0 inset-x-0 bg-white opacity-90 text-xs pl-1 md:pl-3">
-                <p className="font-bold text-lg md:text-2xl">{shop.shopName}</p>
-                <p className="font-bold text-lg md:text-2xl">
-                  <i className="fa-solid fa-star text-amber-500"></i>
-                  {shop.shopRating}
-                </p>
-              </div>
+              <Link to={`/shops/${shop.shopName}`}>
+                <img
+                  src={shop.shopImage}
+                  alt="Avatar"
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute w-full md:py-6 bottom-0 inset-x-0 bg-white opacity-90 text-xs pl-1 md:pl-3">
+                  <p className="font-bold text-lg md:text-2xl">
+                    {shop.shopName}
+                  </p>
+                  <p className="font-bold text-lg md:text-2xl">
+                    <i className="fa-solid fa-star text-amber-500"></i>
+                    {shop.shopRating}
+                  </p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

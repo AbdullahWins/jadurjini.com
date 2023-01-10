@@ -75,6 +75,44 @@ async function run() {
       res.send(food);
     });
 
+    app.get("/testProducts/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const product = await productsCollection.findOne(query);
+      res.send(product);
+    });
+
+    // app.get("/category/:categoryName", async (req, res) => {
+    //   const catName = req.params.categoryName;
+    //   const query = { productCategory: catName };
+    //   const category = await productsCollection.findOne(query);
+    //   res.send(category);
+    // });
+
+    app.get("/category/:categoryName", async (req, res) => {
+      const categoryName = req.params.categoryName;
+      const query = { productCategory: categoryName };
+      const cursor = testProductsCollection.find(query);
+      const category = await cursor.toArray();
+      res.send(category);
+    });
+
+    app.get("/subCategory/:subCategoryName", async (req, res) => {
+      const subCategoryName = req.params.subCategoryName;
+      const query = { productSubCategory: subCategoryName };
+      const cursor = testProductsCollection.find(query);
+      const subCategory = await cursor.toArray();
+      res.send(subCategory);
+    });
+
+    app.get("/shops/:shopName", async (req, res) => {
+      const shopName = req.params.shopName;
+      const query = { shopName: shopName };
+      const cursor = testProductsCollection.find(query);
+      const shop = await cursor.toArray();
+      res.send(shop);
+    });
+
     // // temporary to update price field on appointment options
     // app.get("/addNewField", async (req, res) => {
     //   const filter = {};

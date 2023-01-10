@@ -11,6 +11,7 @@ import category1 from "../../assets/category/category1.png";
 import category2 from "../../assets/category/category2.png";
 import category3 from "../../assets/category/category3.png";
 import category4 from "../../assets/category/category4.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const bannerSlider = [slide1, slide2, slide3, slide4, slide5, slide6];
@@ -33,51 +34,6 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // const burgerDetails = [
-  //   {
-  //     foodName: "Burger",
-  //     price: 250,
-  //     time: "2 days ago",
-  //     image: food1,
-  //     rating: 4.3,
-  //   },
-  //   {
-  //     foodName: "Fuchka",
-  //     price: 250,
-  //     time: "3 days ago",
-  //     image: food2,
-  //     rating: 2.4,
-  //   },
-  //   {
-  //     foodName: "Sandwitch",
-  //     price: 250,
-  //     time: "1 days ago",
-  //     image: food3,
-  //     rating: 4.6,
-  //   },
-  //   {
-  //     foodName: "Cake",
-  //     price: 250,
-  //     time: "2 days ago",
-  //     image: food4,
-  //     rating: 3.0,
-  //   },
-  //   {
-  //     foodName: "Water",
-  //     price: 250,
-  //     time: "5 days ago",
-  //     image: food1,
-  //     rating: 5.0,
-  //   },
-  //   {
-  //     foodName: "Cake",
-  //     price: 250,
-  //     time: "2 days ago",
-  //     image: food2,
-  //     rating: 3.0,
-  //   },
-  // ];
-
   return (
     <div className="flex flex-col h-screen">
       <HomeNav></HomeNav>
@@ -98,12 +54,16 @@ const Home = () => {
               key={i}
               className="flex flex-col items-center justify-center text-center carousel-item bg-gray-400 rounded-md p-4 m-2 h-10 w-10 md:h-52 md:w-52"
             >
-              <img
-                src={slider.categoryImg}
-                className="rounded-box m-0 mt-3 h-8 w-8"
-                alt=""
-              />
-              <p className="m-0 mb-2">{slider.categoryName}</p>
+              <Link to={`/category/${slider.categoryName}`}>
+                <div className="flex flex-col items-center justify-center">
+                  <img
+                    src={slider.categoryImg}
+                    className="rounded-box m-0 mt-3 h-8 w-8"
+                    alt=""
+                  />
+                  <p className="m-0 mb-2">{slider.categoryName}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

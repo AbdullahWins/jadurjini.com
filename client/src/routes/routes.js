@@ -7,9 +7,12 @@ import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import Products from "../pages/ProductDetails/Products";
 import Profile from "../pages/Profile/Profile";
 import Register from "../pages/Register/Register";
 import Shops from "../pages/Shops/Shops";
+import Category from "../pages/Category/Category";
+import Shop from "../pages/Shops/Shop";
 
 export const routes = createBrowserRouter([
   {
@@ -33,12 +36,36 @@ export const routes = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/shop",
+        path: "/shops",
         element: <Shops></Shops>,
       },
       {
-        path: "/product",
+        path: "/shops/:shopName",
+        element: <Shop></Shop>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/shops/${params.shopName}`),
+      },
+      {
+        path: "/products/:id",
         element: <ProductDetails></ProductDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/testProducts/${params.id}`),
+      },
+      {
+        path: "/products",
+        element: <Products></Products>,
+      },
+      {
+        path: "/category/:categoryName",
+        element: <Category></Category>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/category/${params.categoryName}`),
+      },
+      {
+        path: "/subCategory/:subCategoryName",
+        element: <Category></Category>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/subCategory/${params.subCategoryName}`),
       },
       {
         path: "/cart",
