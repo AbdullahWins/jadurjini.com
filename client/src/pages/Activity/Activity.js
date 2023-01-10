@@ -18,7 +18,7 @@ const Activity = () => {
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
         <div className="flex items-center justify-center gap-4">
-          <Link to="/products">
+          <Link to="/">
             <i className="fa-solid fa-angle-left"></i>
           </Link>
           <span className="text-lg font-bold">Activity</span>
@@ -50,29 +50,28 @@ const Activity = () => {
       </section>
       <section>
         {products.map((product, i) => (
-          <div
-            key={i}
-            className="card card-side h-28 w-full bg-red-100 shadow-xl my-4"
-          >
-            <figure>
-              <img
-                className="h-32 w-24 rounded-xl"
-                src={product.productImage}
-                alt="Movie"
-              />
-            </figure>
-            <div className="card-body flex justify-center gap-0 p-2 text-sm">
-              <span className="font-bold text-lg">{product.productName}</span>
-              <span className="pb-2">BDT {product.productPrice}</span>
-              <span>{product.shopName}</span>
-              <span>{product.shopLocation}</span>
+          <Link key={i} to={`/products/${product._id}`}>
+            <div className="card card-side h-28 w-full bg-red-100 shadow-xl my-4">
+              <figure>
+                <img
+                  className="h-32 w-24 rounded-xl"
+                  src={product.productImage}
+                  alt="Movie"
+                />
+              </figure>
+              <div className="card-body flex justify-center gap-0 p-2 text-sm">
+                <span className="font-bold text-lg">{product.productName}</span>
+                <span className="pb-2">BDT {product.productPrice}</span>
+                <span>{product.shopName}</span>
+                <span>{product.shopLocation}</span>
+              </div>
+              <div className="card-actions flex items-center justify-end pr-4">
+                <button>
+                  <i className="fa-solid fa-angle-right"></i>
+                </button>
+              </div>
             </div>
-            <div className="card-actions flex items-center justify-end pr-4">
-              <button>
-                <i className="fa-solid fa-angle-right"></i>
-              </button>
-            </div>
-          </div>
+          </Link>
         ))}
       </section>
       <div

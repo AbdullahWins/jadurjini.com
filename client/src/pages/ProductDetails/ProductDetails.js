@@ -8,7 +8,7 @@ const ProductDetails = () => {
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
         <p>
-          <Link to="/shop">
+          <Link to="/shops">
             <i className="fa-solid fa-angle-left"></i>
           </Link>
         </p>
@@ -27,12 +27,13 @@ const ProductDetails = () => {
         </div>
         <div className="flex items-center justify-between py-4">
           <div>
-            <p className="opacity-50">Men's Sweatshirt</p>
-            <p className="text-xl font-bold">Men's Sweatshirt</p>
+            <p className="opacity-50">{product.productCategory}</p>
+            <p className="text-xl font-bold">{product.productName}</p>
           </div>
           <div className="text-end">
             <p>
-              <i className="fa-solid fa-star text-amber-500"></i>4.5
+              <i className="fa-solid fa-star text-amber-500"></i>
+              {product.productRating}
             </p>
             <p className="font-bold">BDT {product.productPrice}</p>
           </div>

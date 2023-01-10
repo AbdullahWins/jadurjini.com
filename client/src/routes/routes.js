@@ -7,7 +7,6 @@ import Error from "../pages/Error/Error";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
-import Products from "../pages/ProductDetails/Products";
 import Profile from "../pages/Profile/Profile";
 import Register from "../pages/Register/Register";
 import Shops from "../pages/Shops/Shops";
@@ -50,10 +49,6 @@ export const routes = createBrowserRouter([
         element: <ProductDetails></ProductDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/testProducts/${params.id}`),
-      },
-      {
-        path: "/products",
-        element: <Products></Products>,
       },
       {
         path: "/category/:categoryName",

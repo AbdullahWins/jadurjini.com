@@ -78,7 +78,7 @@ async function run() {
     app.get("/testProducts/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
-      const product = await productsCollection.findOne(query);
+      const product = await testProductsCollection.findOne(query);
       res.send(product);
     });
 

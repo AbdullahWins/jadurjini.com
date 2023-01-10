@@ -14,7 +14,7 @@ const Product = ({ product }) => {
         <div className="card-body p-2">
           <p className="font-bold">{product.productName}</p>
           <p>BDT {product.productPrice}</p>
-          <p>{product.time}</p>
+          <p>{product.productCategory}</p>
         </div>
       </div>
     </div>
