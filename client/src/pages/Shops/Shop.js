@@ -62,9 +62,11 @@ const Shop = () => {
           </div>
         </section>
       </section>
-      {shops.map((product, i) => (
-        <Product key={i} product={product}></Product>
-      ))}
+      <section className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 m-4">
+        {shops.map((product, i) => (
+          <Product key={i} product={product}></Product>
+        ))}
+      </section>
     </div>
   );
 };
