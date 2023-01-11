@@ -120,14 +120,15 @@ async function run() {
       res.send(shop);
     });
 
-    // // temporary to update price field on appointment options
+    // temporary to add fields on
     // app.get("/addNewField", async (req, res) => {
     //   const filter = {};
     //   const options = { upsert: true };
     //   const updatedDoc = {
     //     $set: {
-    //       shopName: "AArong",
-    //       shopLocation: "Rajshahi, Bangladesh",
+    //       shopImage:
+    //         "https://www.mawbiz.com.bd/application/views/module/product_image/IMG_6906_1.JPG",
+    //       shopRating: "4.5",
     //     },
     //   };
     //   const result = await testProductsCollection.updateMany(

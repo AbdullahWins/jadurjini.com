@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 
 const Shops = () => {
   const shops = useLoaderData();
-  // const [shops, setShops] = useState([]);
+  const [newShops, setNewShops] = useState();
+
+  useEffect(() => {
+    let newShopNames = [];
+    let newShopList = [];
+    shops.map((shop) => {
+      if (!newShopNames.includes(shop.shopName)) {
+        newShopNames.push(shop.shopName);
+        newShopList.push(shop);
+      }
+      return setNewShops(newShopList);
+    });
+  }, [shops]);
 
   // useEffect(() => {
-  //   const url = `http://localhost:5000/shops/${shopName}`;
+  //   const url = `http://localhost:5000/testShops`;
   //   fetch(url)
   //     .then((res) => res.json())
   //     .then((data) => setShops(data))
@@ -31,7 +43,7 @@ const Shops = () => {
       </p>
       <div className="flex items-center justify-center">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {shops.map((shop, i) => (
+          {newShops?.map((shop, i) => (
             <div
               key={i}
               className="relative w-40 h-32 md:h-80 md:w-96 rounded-xl bordered overflow-hidden"
