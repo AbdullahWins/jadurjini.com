@@ -15,7 +15,7 @@ const Cart = () => {
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
-        <Link to="/product">
+        <Link to="/">
           <i className="fa-solid fa-angle-left"></i>
         </Link>
         <div className="flex gap-4">
