@@ -82,6 +82,15 @@ async function run() {
       res.send(product);
     });
 
+    app.get("/locateShops/:id", async (req, res) => {
+      const id = req.params.id;
+      const cursor = testProductsCollection.find({
+        shopLocation: { $regex: id },
+      });
+      const shops = await cursor.toArray();
+      res.send(shops);
+    });
+
     // app.get("/category/:categoryName", async (req, res) => {
     //   const catName = req.params.categoryName;
     //   const query = { productCategory: catName };

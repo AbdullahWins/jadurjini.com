@@ -26,16 +26,26 @@ const Shops = () => {
   //     .catch((err) => console.log(err));
   // }, []);
 
+  const handleSelected = (e) => {
+    const location = e.target.value;
+    const url = `http://localhost:5000/locateShops/${location}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setNewShops(data))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <div className="flex align-center justify-center mt-4">
-        <select className="select w-11/12 bg-cyan-400 border-none truncate ">
-          <option>Choose your location</option>
-          <option>Home</option>
-          <option>Marge</option>
-          <option>Bart</option>
-          <option>Lisa</option>
-          <option>Maggie</option>
+        <select
+          onChange={handleSelected}
+          className="select w-11/12 bg-cyan-400 border-none truncate "
+        >
+          <option value="Bangladesh">All Bangladesh</option>
+          <option value="Dhaka">Dhaka</option>
+          <option value="Rajshahi">Rajshahi</option>
+          <option value="Bogra">Bogra</option>
         </select>
       </div>
       <p className="ml-4 my-2 font-bold md:text-center font-xl">
