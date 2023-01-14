@@ -18,9 +18,9 @@ const Shop = () => {
   const categorySlider = [
     { categoryImg: category1, categoryName: "Hoodie" },
     { categoryImg: category2, categoryName: "Tshirt" },
-    { categoryImg: category3, categoryName: "Tshirt" },
+    { categoryImg: category3, categoryName: "Pants" },
     { categoryImg: category4, categoryName: "Hoodie" },
-    { categoryImg: category1, categoryName: "Hoodie" },
+    { categoryImg: category1, categoryName: "Shoes" },
     { categoryImg: category2, categoryName: "Tshirt" },
   ];
 
