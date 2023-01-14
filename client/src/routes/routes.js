@@ -38,25 +38,29 @@ export const routes = createBrowserRouter([
         path: "/shops/:shopName",
         element: <Shop></Shop>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/shops/${params.shopName}`),
+          fetch(`${process.env.REACT_APP_baseURL}/shops/${params.shopName}`),
       },
       {
         path: "/products/:id",
         element: <ProductDetails></ProductDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/testProducts/${params.id}`),
+          fetch(`${process.env.REACT_APP_baseURL}/testProducts/${params.id}`),
       },
       {
         path: "/category/:categoryName",
         element: <Shops></Shops>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.categoryName}`),
+          fetch(
+            `${process.env.REACT_APP_baseURL}/category/${params.categoryName}`
+          ),
       },
       {
         path: "/subCategory/:subCategoryName",
         element: <Category></Category>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/subCategory/${params.subCategoryName}`),
+          fetch(
+            `{process.env.REACT_APP_baseURL}/subCategory/${params.subCategoryName}`
+          ),
       },
       {
         path: "/cart",

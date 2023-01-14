@@ -5,7 +5,7 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/testProducts`;
+    const url = `${process.env.REACT_APP_baseURL}/testProducts`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data))

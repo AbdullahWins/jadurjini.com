@@ -19,7 +19,7 @@ const Shops = () => {
   }, [shops]);
 
   // useEffect(() => {
-  //   const url = `http://localhost:5000/testShops`;
+  //   const url = `${process.env.REACT_APP_baseURL}/testShops`;
   //   fetch(url)
   //     .then((res) => res.json())
   //     .then((data) => setShops(data))
@@ -28,7 +28,7 @@ const Shops = () => {
 
   const handleSelected = (e) => {
     const location = e.target.value;
-    const url = `http://localhost:5000/locateShops/${location}`;
+    const url = `${process.env.REACT_APP_baseURL}/locateShops/${location}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setNewShops(data))
