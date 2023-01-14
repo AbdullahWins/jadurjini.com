@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 const Register = () => {
   const { createNewUserEmail, updateUser } = useContext(AuthContext);
 
-  document.title = "Better Aim | Register";
+  document.title = "JadurJini | Register";
 
   const [error, setError] = useState("");
 
@@ -20,20 +20,22 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    createNewUserEmail(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setError("");
-        form.reset();
-        // successToast();
-        handleUpdate(name);
-        navigate("/");
-      })
-      .catch((error) => {
-        setError(error.message);
-        // errorToast();
-      });
+    console.log("name:" + name, "email:" + email, "pass:" + password);
+    // createNewUserEmail(email, password)
+    //   .then((result) => {
+    //     const user = result.user;
+    //     console.log(user);
+    //     setError("");
+    //     form.reset();
+    //     // successToast();
+    //     handleUpdate(name);
+    //     navigate("/");
+    // })
+    // .catch((error) => {
+    //   console.log(error.message);
+    //   // setError(error.message);
+    //   // errorToast();
+    // });
   };
   const handleUpdate = (name) => {
     const profile = {
