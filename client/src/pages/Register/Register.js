@@ -1,8 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import login from "../../assets/img/login.png";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Register = () => {
+  const { createNewUserEmail, updateUser } = useContext(AuthContext);
+
+  document.title = "Better Aim | Register";
+
+  const [error, setError] = useState("");
+
+  // const errorToast = () => toast(`${error}`);
+  // const successToast = () => toast(`'Account Created!'`);
+
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    createNewUserEmail(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        form.reset();
+        // successToast();
+        handleUpdate(name);
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+        // errorToast();
+      });
+  };
+  const handleUpdate = (name) => {
+    const profile = {
+      displayName: name,
+    };
+    updateUser(profile)
+      .then(() => {})
+      .catch(() => {});
+  };
+
   return (
     <div className="md:flex h-screen md:justify-center md:items-center mx-2">
       <div className="card lg:w-96 bg-base-100">
@@ -10,27 +51,29 @@ const Register = () => {
         <figure className="px-5">
           <img src={login} alt="login img" className="rounded-xl" />
         </figure>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          className="input input-bordered w-full font-bold"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="input input-bordered w-full my-4 font-bold"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          className="input input-bordered w-full mb-4 font-bold"
-        />
-        <button className="btn w-full bg-gradient-to-r from-blue-500 to-cyan-400 border-none">
-          Sign Up
-        </button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            className="input input-bordered w-full font-bold"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="input input-bordered w-full my-4 font-bold"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="input input-bordered w-full mb-4 font-bold"
+          />
+          <button className="submit btn w-full bg-gradient-to-r from-blue-500 to-cyan-400 border-none">
+            Sign Up
+          </button>
+        </form>
         <p className="text-xl text-center pt-4">
           Already have an account?
           <span className="text-bold text-lime-600">
