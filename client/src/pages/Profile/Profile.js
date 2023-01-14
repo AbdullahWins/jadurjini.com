@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import defaultUserImage from "../../assets/user/user.jpg";
 import BottomNav from "../../components/HomeComponents/BottomNav";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile = () => {
+  const user = useContext(AuthContext);
+  console.log(user.user);
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
@@ -24,8 +27,8 @@ const Profile = () => {
           </div>
         </div>
         <div className="text-center py-4 text-sm">
-          <p className="text-xl font-bold">Abdullah Al Mahmud</p>
-          <p>abdudevs@gmail.com</p>
+          <p className="text-xl font-bold">{user?.user?.displayName}</p>
+          <p>{user?.user?.email}</p>
           <p>+8801773371221</p>
         </div>
       </section>
