@@ -21,29 +21,33 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log("name:" + name, "email:" + email, "pass:" + password);
-    // createNewUserEmail(email, password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
-    //     setError("");
-    //     form.reset();
-    //     // successToast();
-    //     handleUpdate(name);
-    //     navigate("/");
-    // })
-    // .catch((error) => {
-    //   console.log(error.message);
-    //   // setError(error.message);
-    //   // errorToast();
-    // });
+    createNewUserEmail(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setError("");
+        form.reset();
+        // successToast();
+        handleUpdate(name);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        // setError(error.message);
+        // errorToast();
+      });
   };
   const handleUpdate = (name) => {
     const profile = {
       displayName: name,
     };
     updateUser(profile)
-      .then(() => {})
-      .catch(() => {});
+      .then((e) => {
+        console.log("profile updated!");
+      })
+      .catch((e) => {
+        console.log(e.message);
+      });
   };
 
   return (
