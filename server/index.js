@@ -33,20 +33,19 @@ async function run() {
       .db("jadurjinidb")
       .collection("testFoods");
 
+    //separate apis
     app.get("/users", async (req, res) => {
       const query = {};
       const cursor = usersCollection.find(query);
       const users = await cursor.toArray();
       res.send(users);
     });
-
     app.get("/sales", async (req, res) => {
       const query = {};
       const cursor = salesCollection.find(query);
       const sales = await cursor.toArray();
       res.send(sales);
     });
-
     app.get("/products", async (req, res) => {
       const query = {};
       const cursor = productsCollection.find(query);
@@ -54,34 +53,37 @@ async function run() {
       res.send(products);
     });
 
+    //products
     app.get("/testProducts", async (req, res) => {
       const query = {};
       const cursor = testProductsCollection.find(query);
       const products = await cursor.toArray();
       res.send(products);
     });
-
-    app.get("/testShops", async (req, res) => {
-      const query = {};
-      const cursor = testShopsCollection.find(query);
-      const shops = await cursor.toArray();
-      res.send(shops);
-    });
-
     app.get("/testFoods", async (req, res) => {
       const query = {};
       const cursor = testFoodsCollection.find(query);
       const food = await cursor.toArray();
       res.send(food);
     });
-
     app.get("/testProducts/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const product = await testProductsCollection.findOne(query);
       res.send(product);
     });
-
+    app.post("/addproduct", async (req, res) => {
+      const product = req.body;
+      const result = await testProductsCollection.insertOne(product);
+      res.send(result);
+    });
+    //shop
+    app.get("/testShops", async (req, res) => {
+      const query = {};
+      const cursor = testShopsCollection.find(query);
+      const shops = await cursor.toArray();
+      res.send(shops);
+    });
     app.get("/locateShops/:id", async (req, res) => {
       const id = req.params.id;
       const cursor = testProductsCollection.find({
@@ -90,21 +92,14 @@ async function run() {
       const shops = await cursor.toArray();
       res.send(shops);
     });
-
-    // app.get("/category/:categoryName", async (req, res) => {
-    //   const catName = req.params.categoryName;
-    //   const query = { productCategory: catName };
-    //   const category = await productsCollection.findOne(query);
-    //   res.send(category);
-    // });
-
-    // app.get("/categories", async (req, res) => {
-    //   const query = {};
-    //   const cursor = testProductsCollection.find(query);
-    //   const categories = await cursor.toArray();
-    //   res.send(categories);
-    // });
-
+    app.get("/shops/:shopName", async (req, res) => {
+      const shopName = req.params.shopName;
+      const query = { shopName: shopName };
+      const cursor = testProductsCollection.find(query);
+      const shop = await cursor.toArray();
+      res.send(shop);
+    });
+    //category
     app.get("/category/:categoryName", async (req, res) => {
       const categoryName = req.params.categoryName;
       const query = { productCategory: categoryName };
@@ -112,21 +107,12 @@ async function run() {
       const category = await cursor.toArray();
       res.send(category);
     });
-
     app.get("/subCategory/:subCategoryName", async (req, res) => {
       const subCategoryName = req.params.subCategoryName;
       const query = { productSubCategory: subCategoryName };
       const cursor = testProductsCollection.find(query);
       const subCategory = await cursor.toArray();
       res.send(subCategory);
-    });
-
-    app.get("/shops/:shopName", async (req, res) => {
-      const shopName = req.params.shopName;
-      const query = { shopName: shopName };
-      const cursor = testProductsCollection.find(query);
-      const shop = await cursor.toArray();
-      res.send(shop);
     });
 
     // temporary to add fields on
@@ -154,6 +140,20 @@ async function run() {
     //   const cursor = reviewCollection.find(query);
     //   const review = await cursor.toArray();
     //   res.send(review);
+    // });
+
+    // app.get("/category/:categoryName", async (req, res) => {
+    //   const catName = req.params.categoryName;
+    //   const query = { productCategory: catName };
+    //   const category = await productsCollection.findOne(query);
+    //   res.send(category);
+    // });
+
+    // app.get("/categories", async (req, res) => {
+    //   const query = {};
+    //   const cursor = testProductsCollection.find(query);
+    //   const categories = await cursor.toArray();
+    //   res.send(categories);
     // });
 
     // app.patch("/myReviews/:id", async (req, res) => {

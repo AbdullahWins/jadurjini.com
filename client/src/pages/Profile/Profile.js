@@ -6,7 +6,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile = () => {
   const user = useContext(AuthContext);
-  console.log(user.user);
+
+
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">

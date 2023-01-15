@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import login from "../../assets/img/login.png";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -8,7 +8,7 @@ const Register = () => {
 
   document.title = "JadurJini | Register";
 
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   // const errorToast = () => toast(`${error}`);
   // const successToast = () => toast(`'Account Created!'`);
@@ -25,7 +25,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        setError("");
+        // setError("");
         form.reset();
         // successToast();
         handleUpdate(name);
