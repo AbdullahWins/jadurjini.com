@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   // const productInfo = {
-  //   productName: "Akash",
+  //   productName: "Akashfrtgerter",
   //   shopName: "AkashShop",
   //   shopLocation: "Dhaka",
   //   shopImage: "https://jsonformatter.org/img/tom-cruise.jpg",
@@ -23,6 +23,7 @@ const Product = ({ product }) => {
   //     })
   //     .catch((error) => console.log(error));
   // };
+  // click();
   return (
     <div>
       <Link to={`/products/${product._id}`}>

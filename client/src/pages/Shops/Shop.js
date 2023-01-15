@@ -42,12 +42,12 @@ const Shop = () => {
       <section>
         <section>
           <div className="flex flex-row overflow-auto over p-2">
-            {categorySlider.map((slider, i) => (
+            {categorySlider?.map((slider, i) => (
               <div
                 key={i}
                 className="flex flex-col items-center justify-center carousel-item bg-gray-400 rounded-md p-4 m-2 h-10 w-10 md:h-52 md:w-52"
               >
-                <Link to={`/subCategory/${slider.categoryName}`}>
+                <Link to={`/subCategory/${slider?.categoryName}`}>
                   <div className="flex flex-col items-center justify-center">
                     <img
                       src={slider.categoryImg}

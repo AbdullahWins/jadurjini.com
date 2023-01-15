@@ -59,7 +59,7 @@ export const routes = createBrowserRouter([
         element: <Category></Category>,
         loader: ({ params }) =>
           fetch(
-            `{process.env.REACT_APP_baseURL}/subCategory/${params.subCategoryName}`
+            `${process.env.REACT_APP_baseURL}/subCategory/${params.subCategoryName}`
           ),
       },
       {

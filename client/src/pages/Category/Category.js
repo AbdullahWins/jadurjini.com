@@ -10,7 +10,7 @@ const Category = () => {
         className=" grid grid-cols-2 md:grid-cols-
          gap-4 p-2"
       >
-        {category.map((product, i) => (
+        {category?.map((product, i) => (
           <Product key={i} product={product}></Product>
         ))}
       </div>
