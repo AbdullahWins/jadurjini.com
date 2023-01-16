@@ -7,12 +7,11 @@ import { AuthContext } from "../../contexts/AuthContext";
 const Profile = () => {
   const user = useContext(AuthContext);
 
-
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
         <div className="flex items-center justify-center gap-4">
-          <Link to="/product">
+          <Link to="/">
             <i className="fa-solid fa-angle-left"></i>
           </Link>
           <span className="text-lg font-bold">Profile</span>
