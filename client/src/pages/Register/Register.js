@@ -4,7 +4,7 @@ import login from "../../assets/img/login.png";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Register = () => {
-  const { createNewUserEmail, updateUser, addUserToDB } =
+  const { user, createNewUserEmail, updateUser, addUserToDB } =
     useContext(AuthContext);
 
   document.title = "JadurJini | Register";
@@ -15,35 +15,12 @@ const Register = () => {
   // const successToast = () => toast(`'Account Created!'`);
 
   const navigate = useNavigate();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    const newUser = {
-      name,
-      email,
-      password,
-    };
-    createNewUserEmail(email, password)
-      .then(() => {
-        // setError("");
-        form.reset();
-        // successToast();
-        addUserToDB(newUser);
-        handleUpdate(name);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error.message);
-        // setError(error.message);
-        // errorToast();
-      });
-  };
-  const handleUpdate = (name) => {
+
+  const handleUpdate = (name, phoneNumber) => {
+    const newPhoneNumber = parseInt(phoneNumber);
     const profile = {
       displayName: name,
+      photoUrl: newPhoneNumber,
     };
     updateUser(profile)
       .then((e) => {
@@ -53,6 +30,37 @@ const Register = () => {
         console.log(e.message);
       });
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const phoneNumber = form.number.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const newUser = {
+      name,
+      email,
+      phoneNumber,
+      password,
+    };
+    createNewUserEmail(email, password)
+      .then(() => {
+        // setError("");
+        form.reset();
+        // successToast();
+        addUserToDB(newUser);
+        handleUpdate(name, phoneNumber);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        // setError(error.message);
+        // errorToast();
+      });
+  };
+
+  console.log(user);
 
   return (
     <div className="md:flex h-screen md:justify-center md:items-center mx-2">
@@ -69,10 +77,16 @@ const Register = () => {
             className="input input-bordered w-full font-bold"
           />
           <input
+            type="text"
+            name="number"
+            placeholder="Number"
+            className="input input-bordered w-full mt-2 font-bold"
+          />
+          <input
             type="email"
             name="email"
             placeholder="Email"
-            className="input input-bordered w-full my-4 font-bold"
+            className="input input-bordered w-full my-2 font-bold"
           />
           <input
             type="password"
