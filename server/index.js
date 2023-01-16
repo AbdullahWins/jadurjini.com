@@ -53,6 +53,13 @@ async function run() {
       res.send(products);
     });
 
+    //users
+    app.post("/user", async (req, res) => {
+      const user = req.body;
+      const result = await usersCollection.insertOne(user);
+      res.send(result);
+    });
+
     //products
     app.get("/testProducts", async (req, res) => {
       const query = {};

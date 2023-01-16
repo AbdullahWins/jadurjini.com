@@ -4,7 +4,8 @@ import login from "../../assets/img/login.png";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Register = () => {
-  const { createNewUserEmail, updateUser } = useContext(AuthContext);
+  const { createNewUserEmail, updateUser, addUserToDB } =
+    useContext(AuthContext);
 
   document.title = "JadurJini | Register";
 
@@ -20,14 +21,17 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log("name:" + name, "email:" + email, "pass:" + password);
+    const newUser = {
+      name,
+      email,
+      password,
+    };
     createNewUserEmail(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then(() => {
         // setError("");
         form.reset();
         // successToast();
+        addUserToDB(newUser);
         handleUpdate(name);
         navigate("/");
       })

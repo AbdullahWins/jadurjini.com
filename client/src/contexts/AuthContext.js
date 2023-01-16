@@ -17,6 +17,18 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const addUserToDB = (user) => {
+    fetch("http://localhost:5000/user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then((res) => {
+      res.json();
+    });
+  };
+
   const updateUser = (profile) => {
     setLoading(true);
     return updateProfile(auth.currentUser, profile);
@@ -62,6 +74,7 @@ const AuthProvider = ({ children }) => {
     providerLogin,
     logout,
     loading,
+    addUserToDB,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
