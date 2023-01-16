@@ -12,6 +12,7 @@ import Register from "../pages/Register/Register";
 import Shops from "../pages/Shops/Shops";
 import Category from "../pages/Category/Category";
 import Shop from "../pages/Shops/Shop";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -64,7 +65,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart></Cart>,
+        element: (
+          <PrivateRoute>
+            <Cart></Cart>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/profile",

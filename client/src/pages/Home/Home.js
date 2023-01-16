@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import HomeNav from "../../components/HomeComponents/HomeNav";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 import slide1 from "../../assets/slides/slide1.png";
