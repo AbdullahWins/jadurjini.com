@@ -24,7 +24,9 @@ const Activity = () => {
           <span className="text-lg font-bold">Activity</span>
         </div>
         <p>
-          <i className="fa-solid fa-bars"></i>
+          <Link to="/cart">
+            <i className="fa-solid text-xl fa-bag-shopping"></i>
+          </Link>
         </p>
       </section>
       <section>

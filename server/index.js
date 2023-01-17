@@ -32,6 +32,9 @@ async function run() {
     const testFoodsCollection = client
       .db("jadurjinidb")
       .collection("testFoods");
+    const testCartsCollection = client
+      .db("jadurjinidb")
+      .collection("testCarts");
 
     //separate apis
     app.get("/users", async (req, res) => {
@@ -60,12 +63,39 @@ async function run() {
       res.send(result);
     });
 
+    //cart
+    app.get("/testCart/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const product = await testCartsCollection.findOne(query);
+      res.send(product);
+    });
+
     //products
     app.get("/testProducts", async (req, res) => {
       const query = {};
       const cursor = testProductsCollection.find(query);
       const products = await cursor.toArray();
       res.send(products);
+    });
+    app.get("/testCartProducts", async (req, res) => {
+      const cartId = req.body;
+      console.log(cartId);
+      const cart = [];
+      const cartInReq = [cartId._id];
+      // cartId.map((id) => {
+      //   cartInReq.push(ObjectId(id));
+      // });
+      try {
+        const cursor = testProductsCollection.find({
+          _id: {
+            $in: ObjectId(cartInReq),
+          },
+        });
+        const product = await cursor.toArray();
+        cart.push(product);
+        res.send(cart);
+      } catch {}
     });
     app.get("/testFoods", async (req, res) => {
       const query = {};

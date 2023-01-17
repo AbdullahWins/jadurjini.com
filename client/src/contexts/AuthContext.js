@@ -16,6 +16,33 @@ const auth = getAuth(firebaseApp);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  // const [quantity, setQuantity] = useState(1);
+  const [cart, setCart] = useState([]);
+
+  // cart
+  const addToCart = (productId) => {
+    const productWithQuantity = { productId, quantity: 1 };
+    setCart([...cart, productWithQuantity]);
+  };
+
+  console.log(cart);
+  // // Whenever items change save to localStorage
+  // useEffect(() => {
+  //   localStorage.setItem("cart", JSON.stringify(cart));
+  //   console.log(`Saved ${cart.length} items to localstorage`);
+  // }, [cart]); //dependency is items
+
+  // // Add a new item
+  // const addToCart = (productId, quan) => {
+  //   cart.map((product) => {
+  //     if (product.productId !== productId) {
+  //       setCart([...cart, { productId, quantity }]);
+  //     }
+  //     cart.pop(productId);
+  //     setQuantity(quantity+1)
+  //     return setCart([...cart, { productId, quantity}]);
+  //   });
+  // };
 
   const addUserToDB = (user) => {
     fetch("http://localhost:5000/user", {
@@ -75,6 +102,9 @@ const AuthProvider = ({ children }) => {
     logout,
     loading,
     addUserToDB,
+    cart,
+    setCart,
+    addToCart,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

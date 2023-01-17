@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const ProductDetails = () => {
   const product = useLoaderData();
+  const productId = product?._id;
+  const { addToCart } = useContext(AuthContext);
+
+  const handleAddToCart = () => {
+    addToCart(productId);
+  };
 
   return (
     <div className="relative px-4 h-screen">
@@ -14,10 +21,9 @@ const ProductDetails = () => {
         </p>
         <div className="flex gap-4">
           <p>
-            <i className="fa-solid fa-share-nodes"></i>
-          </p>
-          <p>
-            <i className="fa-solid fa-bag-shopping"></i>
+            <Link to="/cart">
+              <i className="fa-solid text-xl fa-bag-shopping"></i>
+            </Link>
           </p>
         </div>
       </section>
@@ -73,7 +79,10 @@ const ProductDetails = () => {
           <i className="fa-regular fa-bookmark"></i>
         </p>
         <div className="flex justify-around gap-4">
-          <button className="btn bg-gradient-to-r from-orange-500 to-red-600 border-none">
+          <button
+            onClick={handleAddToCart}
+            className="btn bg-gradient-to-r from-orange-500 to-red-600 border-none"
+          >
             Add To Cart
           </button>
           <button className="btn bg-gradient-to-r from-purple-600 to-red-600 border-none">

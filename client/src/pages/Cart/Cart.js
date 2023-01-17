@@ -4,7 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, cart, setCart } = useContext(AuthContext);
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_baseURL}/testProducts`;
@@ -25,21 +25,21 @@ const Cart = () => {
         </div>
       </section>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {products.map((product, i) => (
+        {cart?.map((product, i) => (
           <div
             key={i}
             className="card card-side grid grid-cols-2 bg-red-100 shadow-xl h-36 justify-center"
           >
             <figure>
-              <img className="h-36" src={product.productImage} alt="Movie" />
+              <img className="h-36" src={product?.productImage} alt="Movie" />
             </figure>
             <div className="card-body p-2 flex justify-center text-sm gap-0">
-              <span className="text-lg font-bold">{product.productName}</span>
+              <span className="text-lg font-bold">{product?.productName}</span>
               <span className="font-bold opacity-50">
-                BDT {product.productPrice}
+                BDT {product?.productPrice}
               </span>
-              <span>Size: {product.size}</span>
-              <span className="font-bold">Price: {product.productPrice}</span>
+              <span>Size: {product?.size}</span>
+              <span className="font-bold">Price: {product?.productPrice}</span>
               <div className="flex items-center justify-end col-span-2">
                 <button>
                   <i className="fa-solid fa-minus"></i>
