@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
+<<<<<<< HEAD
   const { user, cart, setCart } = useContext(AuthContext);
+=======
+>>>>>>> parent of 82825ef (fixed cart options)
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_baseURL}/testProducts`;
@@ -21,7 +23,12 @@ const Cart = () => {
           <i className="fa-solid fa-angle-left"></i>
         </Link>
         <div className="flex gap-4">
-          <p className="font-bold">{user?.displayName}</p>
+          <p>
+            <i className="fa-solid fa-share-nodes"></i>
+          </p>
+          <p>
+            <i className="fa-solid fa-bag-shopping"></i>
+          </p>
         </div>
       </section>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -73,6 +80,9 @@ const Cart = () => {
           </div>
         </div>
         <div className="flex items-center justify-around">
+          <p>
+            <i className="fa-regular fa-bookmark"></i>
+          </p>
           <div className="row-span-2 flex justify-around gap-4">
             <button className="btn btn-wide btn-sm rounded-3xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
               Buy Now
