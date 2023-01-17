@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
@@ -23,6 +24,12 @@ const Cart = () => {
           <i className="fa-solid fa-angle-left"></i>
         </Link>
         <div className="flex gap-4">
+          <p>
+            <i className="fa-solid fa-share-nodes"></i>
+          </p>
+          <p>
+            <i className="fa-solid fa-bag-shopping"></i>
+          </p>
           <p>
             <i className="fa-solid fa-share-nodes"></i>
           </p>
@@ -80,6 +87,9 @@ const Cart = () => {
           </div>
         </div>
         <div className="flex items-center justify-around">
+          <p>
+            <i className="fa-regular fa-bookmark"></i>
+          </p>
           <p>
             <i className="fa-regular fa-bookmark"></i>
           </p>
