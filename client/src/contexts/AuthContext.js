@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
   // const [quantity, setQuantity] = useState(1);
   const [cart, setCart] = useState([]);
 
-
   console.log(cart);
   // Whenever items change save to localStorage
   useEffect(() => {
@@ -28,15 +27,8 @@ const AuthProvider = ({ children }) => {
   }, [cart]); //dependency is items
 
   // Add a new item
-  const addToCart = (productId, quan) => {
-    cart.map((product) => {
-      if (product.productId !== productId) {
-        setCart([...cart, { productId, quantity }]);
-      }
-      cart.pop(productId);
-      setQuantity(quantity+1)
-      return setCart([...cart, { productId, quantity}]);
-    });
+  const addToCart = (productId, quantity) => {
+    setCart([...cart, { productId, quantity }]);
   };
 
   const addUserToDB = (user) => {

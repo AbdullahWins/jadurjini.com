@@ -4,7 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, cart } = useContext(AuthContext);
 
   useEffect(() => {
     const url = `${process.env.REACT_APP_baseURL}/testProducts`;
