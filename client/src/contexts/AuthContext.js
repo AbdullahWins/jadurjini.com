@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(`Saved ${cart.length} items to localstorage`);
-  }, [cart]); //dependency is items
+  }, [cart]); //dependency is itemss
 
   // Add a new item
   const addToCart = (productId, quantity) => {
