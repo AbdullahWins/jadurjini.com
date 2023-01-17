@@ -1,18 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Cart = () => {
-  const [products, setProducts] = useState([]);
   const { user, cart } = useContext(AuthContext);
-
-  useEffect(() => {
-    const url = `${process.env.REACT_APP_baseURL}/testProducts`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.log(err));
-  }, []);
 
   return (
     <div className="relative px-4 h-screen">

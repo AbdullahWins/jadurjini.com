@@ -4,11 +4,10 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 const ProductDetails = () => {
   const product = useLoaderData();
-  const productId = product?._id;
   const { addToCart } = useContext(AuthContext);
 
   const handleAddToCart = () => {
-    addToCart(productId);
+    addToCart(product);
   };
 
   return (
