@@ -26,6 +26,7 @@ const AuthProvider = ({ children }) => {
   }, [cart]);
 
   const addToCart = (product) => {
+    product.quantity = 1;
     setCart([...cart, product]);
   };
 

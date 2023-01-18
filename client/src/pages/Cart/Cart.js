@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import CartProduct from "./CartProduct";
 
 const Cart = () => {
   const { user, cart } = useContext(AuthContext);
+  console.log(cart);
 
   return (
     <div className="relative px-4 h-screen">
@@ -17,31 +19,7 @@ const Cart = () => {
       </section>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cart?.map((product, i) => (
-          <div
-            key={i}
-            className="card card-side grid grid-cols-2 bg-red-100 shadow-xl h-36 justify-center"
-          >
-            <figure>
-              <img className="h-36" src={product?.productImage} alt="Movie" />
-            </figure>
-            <div className="card-body p-2 flex justify-center text-sm gap-0">
-              <span className="text-lg font-bold">{product?.productName}</span>
-              <span className="font-bold opacity-50">
-                BDT {product?.productPrice}
-              </span>
-              <span>Size: {product?.size}</span>
-              <span className="font-bold">Price: {product?.productPrice}</span>
-              <div className="flex items-center justify-end col-span-2">
-                <button>
-                  <i className="fa-solid fa-minus"></i>
-                </button>
-                <span className="px-2">1</span>
-                <button>
-                  <i className="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </div>
-          </div>
+          <CartProduct product={product} key={i}></CartProduct>
         ))}
       </section>
       <section
