@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 const CartProduct = ({ product }) => {
   const [quantity, setQuantity] = useState(product.quantity);
