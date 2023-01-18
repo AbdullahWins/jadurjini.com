@@ -16,19 +16,18 @@ const auth = getAuth(firebaseApp);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [quantity, setQuantity] = useState(1);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
-  console.log(cart);
-  // Whenever items change save to localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(`Saved ${cart.length} items to localstorage`);
-  }, [cart]); //dependency is itemss
+  }, [cart]);
 
-  // Add a new item
-  const addToCart = (productId, quantity) => {
-    setCart([...cart, { productId, quantity }]);
+  const addToCart = (product) => {
+    product.quantity = 1;
+    setCart([...cart, product]);
   };
 
   const addUserToDB = (user) => {
