@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const CartProduct = ({ product }) => {
+  const { user } = useContext(AuthContext);
   const [quantity, setQuantity] = useState(product.quantity);
+  console.log(quantity);
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
