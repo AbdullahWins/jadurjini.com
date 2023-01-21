@@ -70,7 +70,8 @@ const AuthProvider = ({ children }) => {
           product.quantity = quantity + 1;
         } else {
           if (product.quantity <= 1) {
-            product.quantity = 1;
+            // product.quantity = 1;
+            newCart.splice(newCart.indexOf(product), 1);
           } else {
             product.quantity = quantity - 1;
           }

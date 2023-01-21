@@ -6,7 +6,6 @@ import CartProduct from "./CartProduct";
 const Cart = () => {
   const { user, dbUser, cart, updateCart, subtotal, total, shipping } =
     useContext(AuthContext);
-
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
@@ -43,7 +42,7 @@ const Cart = () => {
           </div>
           <div className="flex items-center justify-between">
             <span>Total:</span>
-            <span>{total}</span>
+            <span>BDT {total}</span>
           </div>
         </div>
         <div className="flex items-center justify-around">
