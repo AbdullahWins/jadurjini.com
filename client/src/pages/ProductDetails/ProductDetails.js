@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const { addToCart } = useContext(AuthContext);
 
   const handleAddToCart = () => {
-    addToCart(product);
+    addToCart(product, 1);
   };
 
   return (

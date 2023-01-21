@@ -35,9 +35,17 @@ const AuthProvider = ({ children }) => {
       .then((data) => setDbUser(data));
   }, [user]);
 
-  const addToCart = (product) => {
-    product.quantity = 1;
-    setCart([...cart, product]);
+  const addToCart = (product, quantity) => {
+    const cartId = [];
+    cart.map((prod) => {
+      cartId.push(prod._id);
+    });
+    if (cartId.includes(product._id)) {
+      console.log("already added");
+    } else {
+      product.quantity = quantity;
+      setCart([...cart, product]);
+    }
   };
 
   const updateCart = (productId, quantity, add) => {
@@ -51,8 +59,8 @@ const AuthProvider = ({ children }) => {
         } else {
           product.quantity = quantity - 1;
         }
-        console.log(newCart);
       }
+      return console.log(newCart);
     });
     setCart(newCart);
   };

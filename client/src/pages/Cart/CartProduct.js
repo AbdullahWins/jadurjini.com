@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CartProduct = ({ product, dbUser, updateCart }) => {
+const CartProduct = ({ product, updateCart }) => {
   const [quantity, setQuantity] = useState(product.quantity);
 
   const increaseQuantity = () => {
