@@ -4,8 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import CartProduct from "./CartProduct";
 
 const Cart = () => {
-  const { user, cart } = useContext(AuthContext);
-  console.log(cart);
+  const { user, dbUser, cart, updateCart } = useContext(AuthContext);
 
   return (
     <div className="relative px-4 h-screen">
@@ -19,7 +18,12 @@ const Cart = () => {
       </section>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cart?.map((product, i) => (
-          <CartProduct product={product} key={i}></CartProduct>
+          <CartProduct
+            product={product}
+            updateCart={updateCart}
+            dbUser={dbUser}
+            key={i}
+          ></CartProduct>
         ))}
       </section>
       <section

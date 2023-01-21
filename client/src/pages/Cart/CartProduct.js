@@ -1,15 +1,16 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import React, { useState } from "react";
 
-const CartProduct = ({ product }) => {
-  const { user } = useContext(AuthContext);
+const CartProduct = ({ product, dbUser, updateCart }) => {
   const [quantity, setQuantity] = useState(product.quantity);
-  console.log(quantity);
 
   const increaseQuantity = () => {
+    updateCart(product._id, quantity, true);
+    // console.log(quantity, product._id);
     setQuantity(quantity + 1);
   };
   const decreaseQuantity = () => {
+    updateCart(product._id, quantity, false);
+    // console.log(quantity, dbUser._id);
     if (quantity === 1) {
       return;
     }

@@ -20,7 +20,6 @@ const AuthProvider = ({ children }) => {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
-  console.log(dbUser);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -39,6 +38,23 @@ const AuthProvider = ({ children }) => {
   const addToCart = (product) => {
     product.quantity = 1;
     setCart([...cart, product]);
+  };
+
+  const updateCart = (productId, quantity, add) => {
+    const newCart = [...cart];
+    newCart.map((product) => {
+      if (productId === product._id) {
+        // const index = newCart.indexOf(product);
+        // delete newCart[index];
+        if (add) {
+          product.quantity = quantity + 1;
+        } else {
+          product.quantity = quantity - 1;
+        }
+        console.log(newCart);
+      }
+    });
+    setCart(newCart);
   };
 
   const addUserToDB = (user) => {
@@ -102,6 +118,8 @@ const AuthProvider = ({ children }) => {
     cart,
     setCart,
     addToCart,
+    dbUser,
+    updateCart,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
