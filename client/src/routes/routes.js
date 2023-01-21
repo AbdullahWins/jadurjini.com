@@ -13,6 +13,7 @@ import Shops from "../pages/Shops/Shops";
 import Category from "../pages/Category/Category";
 import Shop from "../pages/Shops/Shop";
 import PrivateRoute from "./PrivateRoute";
+import Shipping from "../pages/Shipping/Shipping";
 
 export const routes = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ export const routes = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+
+      {
+        path: "/shipping",
+        element: <Shipping></Shipping>,
       },
       {
         path: "/register",
