@@ -63,6 +63,14 @@ async function run() {
       res.send(result);
     });
 
+    app.get("/user", async (req, res) => {
+      const userMail = req.query.email;
+      console.log(userMail);
+      const query = { email: userMail };
+      const user = await usersCollection.findOne(query);
+      res.send(user);
+    });
+
     //cart
     app.get("/testCart/:id", async (req, res) => {
       const id = req.params.id;

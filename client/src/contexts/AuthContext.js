@@ -15,15 +15,26 @@ const auth = getAuth(firebaseApp);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [dbUser, setDbUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
+  console.log(dbUser);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     console.log(`Saved ${cart.length} items to localstorage`);
   }, [cart]);
+
+  useEffect(() => {
+    if (user === null) {
+      return;
+    }
+    fetch(`http://localhost:5000/user?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setDbUser(data));
+  }, [user]);
 
   const addToCart = (product) => {
     product.quantity = 1;
