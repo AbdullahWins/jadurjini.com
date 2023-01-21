@@ -4,7 +4,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import CartProduct from "./CartProduct";
 
 const Cart = () => {
-  const { user, dbUser, cart, updateCart } = useContext(AuthContext);
+  const { user, dbUser, cart, updateCart, subtotal, total, shipping } =
+    useContext(AuthContext);
 
   return (
     <div className="relative px-4 h-screen">
@@ -34,15 +35,15 @@ const Cart = () => {
         <div className="text-sm font-bold mb-4">
           <div className="flex items-center justify-between">
             <span>SubTotal:</span>
-            <span>BDT 4500</span>
+            <span>BDT {subtotal}</span>
           </div>
           <div className="flex items-center justify-between">
             <span>Shipping:</span>
-            <span>BDT 100</span>
+            <span>BDT {shipping}</span>
           </div>
           <div className="flex items-center justify-between">
             <span>Total:</span>
-            <span>4600</span>
+            <span>{total}</span>
           </div>
         </div>
         <div className="flex items-center justify-around">

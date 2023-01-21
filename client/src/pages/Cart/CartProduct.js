@@ -11,10 +11,11 @@ const CartProduct = ({ product, updateCart }) => {
   const decreaseQuantity = () => {
     updateCart(product._id, quantity, false);
     // console.log(quantity, dbUser._id);
-    if (quantity === 1) {
-      return;
+    if (quantity <= 1) {
+      setQuantity(1);
+    } else {
+      setQuantity(quantity - 1);
     }
-    setQuantity(quantity - 1);
   };
   return (
     <div className="card card-side grid grid-cols-2 bg-red-100 shadow-xl h-36 justify-center">
