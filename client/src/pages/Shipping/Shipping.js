@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Shipping = () => {
-  const { dbUser, cart } = useContext(AuthContext);
+  const { dbUser, cart, subtotal, shipping } = useContext(AuthContext);
   const notify = () =>
     toast.success("🦄 Order Placed!", {
       position: "top-right",
@@ -28,7 +28,7 @@ const Shipping = () => {
     const address = { streetAddress, city, state, zip };
     const userId = dbUser?._id;
     const date = new Date();
-    const order = { address, cart, dbUser, userId, date };
+    const order = { address, cart, dbUser, userId, date, subtotal, shipping };
     addOrderToDB(order);
     form.reset();
   };

@@ -62,8 +62,8 @@ const Activity = () => {
       <section>
         <p className="my-3 font-bold text-lg">Recent</p>
         <div className="flex flex-col gap-4 items-center justify-center">
-          {orders.map((order) => {
-            return <Orders order={order}></Orders>;
+          {orders.map((order, i) => {
+            return <Orders key={i} order={order}></Orders>;
           })}
         </div>
       </section>
