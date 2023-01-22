@@ -5,8 +5,7 @@ import BottomNav from "../../components/HomeComponents/BottomNav";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile = () => {
-  const user = useContext(AuthContext);
-
+  const { user, dbUser } = useContext(AuthContext);
 
   return (
     <div className="relative px-4 h-screen">
@@ -28,9 +27,9 @@ const Profile = () => {
           </div>
         </div>
         <div className="text-center py-4 text-sm">
-          <p className="text-xl font-bold">{user?.user?.displayName}</p>
-          <p>{user?.user?.email}</p>
-          <p>+8801773371221</p>
+          <p className="text-xl font-bold">{user?.displayName}</p>
+          <p>{user?.email}</p>
+          <p>{dbUser?.phoneNumber}</p>
         </div>
       </section>
       <section className="font-bold pt-4 flex flex-col gap-4">

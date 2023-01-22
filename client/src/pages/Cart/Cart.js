@@ -47,11 +47,19 @@ const Cart = () => {
         </div>
         <div className="flex items-center justify-around">
           <div className="row-span-2 flex justify-around gap-4">
-            <Link to="/shipping">
-              <button className="btn btn-wide btn-sm rounded-3xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
-                Buy Now
-              </button>
-            </Link>
+            {cart?.length ? (
+              <Link to="/shipping">
+                <button className="btn btn-wide btn-sm rounded-3xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
+                  Buy Now
+                </button>
+              </Link>
+            ) : (
+              <Link to="/">
+                <button className="btn btn-wide btn-sm rounded-3xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
+                  Browse Products
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </section>

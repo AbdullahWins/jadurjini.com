@@ -35,6 +35,9 @@ async function run() {
     const testCartsCollection = client
       .db("jadurjinidb")
       .collection("testCarts");
+    const testOrdersCollection = client
+      .db("jadurjinidb")
+      .collection("testOrders");
 
     //separate apis
     app.get("/users", async (req, res) => {
@@ -77,6 +80,13 @@ async function run() {
       const product = await testCartsCollection.findOne(query);
       res.send(product);
     });
+    //order
+    app.post("/order", async (req, res) => {
+      const order = req.body;
+      const result = await testOrdersCollection.insertOne(order);
+      res.send(result);
+    });
+
 
     //products
     app.get("/testProducts", async (req, res) => {
