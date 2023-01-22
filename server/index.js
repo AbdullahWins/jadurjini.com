@@ -87,6 +87,12 @@ async function run() {
       res.send(result);
     });
 
+    app.get("/order", async (req, res) => {
+      const query = {};
+      const cursor = testOrdersCollection.find(query);
+      const order = await cursor.toArray();
+      res.send(order);
+    });
 
     //products
     app.get("/testProducts", async (req, res) => {
