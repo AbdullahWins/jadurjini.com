@@ -80,11 +80,19 @@ async function run() {
       const product = await testCartsCollection.findOne(query);
       res.send(product);
     });
-    //order
+    //orderw
     app.post("/order", async (req, res) => {
       const order = req.body;
       const result = await testOrdersCollection.insertOne(order);
       res.send(result);
+    });
+
+    app.get("/orders/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { userId: id };
+      const cursor = testOrdersCollection.find(query);
+      const orders = await cursor.toArray();
+      res.send(orders);
     });
 
     app.get("/order", async (req, res) => {

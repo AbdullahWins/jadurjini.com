@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Shipping = () => {
   const { dbUser, cart } = useContext(AuthContext);
-  const navigate = useNavigate();
   const notify = () =>
     toast.success("🦄 Order Placed!", {
       position: "top-right",
@@ -27,7 +26,9 @@ const Shipping = () => {
     const state = form.state.value;
     const zip = form.zip.value;
     const address = { streetAddress, city, state, zip };
-    const order = { address, cart, dbUser };
+    const userId = dbUser?._id;
+    const date = new Date();
+    const order = { address, cart, dbUser, userId, date };
     addOrderToDB(order);
     form.reset();
   };
