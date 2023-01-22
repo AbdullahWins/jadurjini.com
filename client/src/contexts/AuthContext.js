@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
     if (user === null) {
       return;
     }
-    fetch(`http://localhost:5000/user?email=${user.email}`)
+    fetch(`${process.env.REACT_APP_baseURL}/user?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setDbUser(data));
   }, [user]);
@@ -83,7 +83,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const addUserToDB = (user) => {
-    fetch("http://localhost:5000/user", {
+    fetch(`${process.env.REACT_APP_baseURL}/user`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

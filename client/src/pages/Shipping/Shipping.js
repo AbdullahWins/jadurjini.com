@@ -34,7 +34,7 @@ const Shipping = () => {
   };
 
   const addOrderToDB = (order) => {
-    fetch("http://localhost:5000/order", {
+    fetch(`${process.env.REACT_APP_baseURL}/order`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

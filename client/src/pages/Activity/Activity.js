@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import food1 from "../../assets/food/cake.jpg";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 import { AuthContext } from "../../contexts/AuthContext";
 import Orders from "../Orders/Orders";
@@ -24,7 +23,7 @@ const Activity = () => {
       return;
     }
     // const url = `${process.env.REACT_APP_baseURL}/orders/${dbUser?.email}`;
-    const url = `http://localhost:5000/order`;
+    const url = `${process.env.REACT_APP_baseURL}/order`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data))
@@ -37,7 +36,7 @@ const Activity = () => {
       return;
     }
     // const url = `${process.env.REACT_APP_baseURL}/orders/${dbUser?.email}`;
-    const url = `http://localhost:5000/orders/${dbUser?._id}`;
+    const url = `${process.env.REACT_APP_baseURL}/orders/${dbUser?._id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data))
