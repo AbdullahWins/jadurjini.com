@@ -3,14 +3,14 @@ import Order from "./Order";
 
 const Orders = ({ order }) => {
   return (
-    <div className="card w-full shadow-xl bg-gray-200">
+    <div className="card rounded-lg w-full shadow-xl bg-gray-200">
       <div className="m-4 p-1 border-dashed border-2 border-gray-500 border-opacity-40">
         <div className="flex items-ceneter justify-between">
           <p>Subtotal: </p> <p>{order.subtotal} tk</p>
         </div>
         <div className="flex items-ceneter justify-between">
           <p className="text-sm opacity-60">Shipping: </p>
-          <p>{order.shipping} tk</p>
+          <p className="text-sm opacity-60">{order.shipping} tk</p>
         </div>
         <div className="flex items-ceneter justify-between">
           <p className="font-bold text-lg">Total:</p>

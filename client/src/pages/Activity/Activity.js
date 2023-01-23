@@ -28,7 +28,6 @@ const Activity = () => {
             <Link to="/">
               <i className="fa-solid fa-angle-left"></i>
             </Link>
-            <span className="text-lg font-bold">Activity</span>
           </div>
           <p>
             <Link to="/cart">
