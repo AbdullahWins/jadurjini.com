@@ -22,14 +22,13 @@ const Activity = () => {
     if (!dbUser) {
       return;
     }
-    // const url = `${process.env.REACT_APP_baseURL}/orders/${dbUser?.email}`;
     const url = `${process.env.REACT_APP_baseURL}/order`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data))
       .catch((err) => console.log(err));
   }, [dbUser]);
-  console.log(orders);
+  // console.log(orders);
 
   useEffect(() => {
     if (!dbUser) {
@@ -42,6 +41,7 @@ const Activity = () => {
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
   }, [dbUser]);
+  console.log(products);
 
   return (
     <div className="relative px-4 h-screen">
@@ -61,7 +61,7 @@ const Activity = () => {
       <section>
         <p className="my-3 font-bold text-lg">Recent</p>
         <div className="flex flex-col gap-4 items-center justify-center">
-          {orders.map((order, i) => {
+          {products.map((order, i) => {
             return <Orders key={i} order={order}></Orders>;
           })}
         </div>

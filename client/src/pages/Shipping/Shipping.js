@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Shipping = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
   const { dbUser, cart, subtotal, shipping } = useContext(AuthContext);
   const notify = () =>
     toast.success("🦄 Order Placed!", {
