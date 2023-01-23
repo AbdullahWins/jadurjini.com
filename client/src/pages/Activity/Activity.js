@@ -6,7 +6,7 @@ import Orders from "../Orders/Orders";
 
 const Activity = () => {
   const { dbUser } = useContext(AuthContext);
-  const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     if (!dbUser) {
@@ -15,10 +15,10 @@ const Activity = () => {
     const url = `${process.env.REACT_APP_baseURL}/orders/${dbUser?._id}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => setOrders(data))
       .catch((err) => console.log(err));
   }, [dbUser]);
-  console.log(products);
+  console.log(orders);
 
   return (
     <div className="relative px-4 h-screen">
@@ -38,7 +38,7 @@ const Activity = () => {
         <section>
           <p className="my-3 font-bold text-lg">Recent</p>
           <div className="flex flex-col gap-4 items-center justify-center">
-            {products.map((order, i) => {
+            {orders.map((order, i) => {
               return <Orders key={i} order={order}></Orders>;
             })}
           </div>
