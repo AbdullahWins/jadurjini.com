@@ -52,9 +52,6 @@ const Shops = () => {
           <option value="Bogra">Bogra</option>
         </select>
       </div>
-      {/* <p className="ml-4 my-2 font-bold md:text-center font-xl">
-        {shops[0]?.shopLocation}
-      </p> */}
       <div className="flex items-center justify-center">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {newShops?.map((shop, i) => (
