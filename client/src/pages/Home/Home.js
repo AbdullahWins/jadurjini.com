@@ -72,12 +72,12 @@ const Home = () => {
                 <div className="card card-side bg-slate-200 ">
                   <figure>
                     <img
-                      className="w-24 h-24 md:w-96 md:h-96"
+                      className="w-20 h-16 md:w-96 md:h-96"
                       src={product.productImage}
                       alt="food"
                     />
                   </figure>
-                  <div className="card-body p-0 pl-2 flex flex-col justify-center md:w-96">
+                  <div className="card-body p-0 px-2 flex flex-col justify-center md:w-96">
                     <span className="card-title text-xs">
                       {product.productName}
                     </span>

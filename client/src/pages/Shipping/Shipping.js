@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Shipping = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   const { dbUser, cart, subtotal, shipping } = useContext(AuthContext);
   const notify = () =>
     toast.success("🦄 Order Placed!", {
       position: "top-right",
-      autoClose: 1500,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -45,6 +48,9 @@ const Shipping = () => {
       .then((data) => {
         if (data.acknowledged) {
           notify();
+          setTimeout(() => {
+            navigate("/");
+          }, 3000);
         }
       });
   };
