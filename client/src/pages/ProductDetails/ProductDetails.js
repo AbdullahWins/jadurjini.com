@@ -69,6 +69,7 @@ const ProductDetails = () => {
         <p className="font-bold">Description:</p>
         <p>{product.productDescription}</p>
       </section>
+      <p className="h-20"></p>
       <section
         className="fixed
              inset-x-0
