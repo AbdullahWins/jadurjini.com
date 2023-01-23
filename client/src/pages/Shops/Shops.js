@@ -18,14 +18,6 @@ const Shops = () => {
     });
   }, [shops]);
 
-  // useEffect(() => {
-  //   const url = `${process.env.REACT_APP_baseURL}/testShops`;
-  //   fetch(url)
-  //     .then((res) => res.json())
-  //     .then((data) => setShops(data))
-  //     .catch((err) => console.log(err));
-  // }, []);
-
   const handleSelected = (e) => {
     const location = e.target.value;
     const url = `${process.env.REACT_APP_baseURL}/locateShops/${location}`;
@@ -36,11 +28,23 @@ const Shops = () => {
   };
 
   return (
-    <div>
-      <div className="flex align-center justify-center my-4">
+    <div className="relative px-4 h-screen">
+      <section className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-center gap-4">
+          <Link to="/">
+            <i className="fa-solid fa-angle-left"></i>
+          </Link>
+        </div>
+        <p>
+          <Link to="/cart">
+            <i className="fa-solid text-xl fa-bag-shopping"></i>
+          </Link>
+        </p>
+      </section>
+      <div className="flex align-center justify-center mb-4">
         <select
           onChange={handleSelected}
-          className="select w-11/12 bg-cyan-400 border-none truncate "
+          className="select w-full bg-cyan-400 border-none truncate "
         >
           <option value="Bangladesh">All Bangladesh</option>
           <option value="Dhaka">Dhaka</option>
@@ -78,6 +82,7 @@ const Shops = () => {
           ))}
         </div>
       </div>
+      <p className="h-24"></p>
       <div
         className="fixed
              inset-x-0
