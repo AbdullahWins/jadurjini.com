@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const BottomNav = () => {
   return (
-    <div className="flex items-center justify-around text-center shadow-lg shadow-zinc-500 h-20 bg-slate-200 rounded-xl">
+    <div className="flex items-center justify-around text-center shadow-lg shadow-zinc-500 h-16 bg-slate-200 rounded-xl">
       <div>
         <Link to="/">
           <p>

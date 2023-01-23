@@ -127,6 +127,7 @@ const Home = () => {
             </Link>
           ))}
         </div>
+        <p className="h-24"></p>
       </section>
       <div
         className="fixed

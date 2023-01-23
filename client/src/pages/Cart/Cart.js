@@ -26,6 +26,7 @@ const Cart = () => {
           ></CartProduct>
         ))}
       </section>
+      <p className="h-40"></p>
       <section
         className="fixed
              inset-x-0

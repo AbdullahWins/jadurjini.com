@@ -8,7 +8,7 @@ const Shipping = () => {
   // const location = useLocation();
   const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/";
-  const { dbUser, cart, subtotal, shipping } = useContext(AuthContext);
+  const { dbUser, cart, subtotal, shipping, setCart } = useContext(AuthContext);
   const notify = () =>
     toast.success("🦄 Order Placed!", {
       position: "top-right",
@@ -33,6 +33,7 @@ const Shipping = () => {
     const date = new Date();
     const order = { address, cart, dbUser, userId, date, subtotal, shipping };
     addOrderToDB(order);
+    setCart([]);
     form.reset();
   };
 
