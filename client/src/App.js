@@ -6,8 +6,10 @@ import { routes } from "./routes/routes";
 function App() {
   const Router = routes;
   return (
-    <div>
-      <RouterProvider router={Router}></RouterProvider>
+    <div className="md:flex md:justify-center">
+      <div className="max-w-6xl">
+        <RouterProvider router={Router}></RouterProvider>
+      </div>
     </div>
   );
 }
