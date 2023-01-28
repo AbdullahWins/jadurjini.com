@@ -28,7 +28,7 @@ const ProductDetails = () => {
       </section>
       <section>
         <div className="flex items-center justify-center">
-          <img className="w-10/12" src={product.productImage} alt="" />
+          <img className="w-full rounded-xl" src={product.productImage} alt="" />
         </div>
         <div className="flex items-center justify-between py-4">
           <div>
@@ -66,7 +66,7 @@ const ProductDetails = () => {
       <section
         className="fixed
              inset-x-0
-             bottom-0 flex items-center justify-between p-4 bg-white"
+             bottom-0 flex items-center justify-between p-4 bg-white md:max-w-6xl m-auto"
       >
         <p>
           <i className="fa-regular fa-bookmark"></i>

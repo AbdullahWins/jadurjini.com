@@ -30,7 +30,7 @@ const Cart = () => {
       <section
         className="fixed
              inset-x-0
-             bottom-0 p-4 bg-white"
+             bottom-0 p-4 bg-white md:max-w-6xl m-auto"
       >
         <div className="text-sm font-bold mb-4">
           <div className="flex items-center justify-between">
