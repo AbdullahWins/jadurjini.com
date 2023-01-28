@@ -12,6 +12,7 @@ import category2 from "../../assets/category/category2.png";
 import category3 from "../../assets/category/category3.png";
 import category4 from "../../assets/category/category4.png";
 import BottomNav from "../../components/HomeComponents/BottomNav";
+import Footer from "../../components/HomeComponents/Footer";
 
 const Shop = () => {
   const shops = useLoaderData();
@@ -65,7 +66,7 @@ const Shop = () => {
                     <div className="flex flex-col items-center justify-center">
                       <img
                         src={slider.categoryImg}
-                        className="rounded-box h-8 w-8"
+                        className="rounded-box h-8 w-8 md:h-36 md:w-36"
                         alt=""
                       />
                       <p className="">{slider.categoryName}</p>
@@ -89,6 +90,9 @@ const Shop = () => {
              p-4"
       >
         <BottomNav></BottomNav>
+      </div>
+      <div className="hidden md:block">
+        <Footer></Footer>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import BottomNav from "../../components/HomeComponents/BottomNav";
+import Footer from "../../components/HomeComponents/Footer";
 
 const Shops = () => {
   const shops = useLoaderData();
@@ -57,7 +58,7 @@ const Shops = () => {
           {newShops?.map((shop, i) => (
             <div
               key={i}
-              className="relative w-40 h-32 md:h-80 md:w-96 rounded-xl bordered overflow-hidden"
+              className="relative h-32 md:h-72 md:w-full rounded-xl bordered overflow-hidden"
             >
               <Link to={`/shops/${shop.shopName}`}>
                 <img
@@ -87,6 +88,9 @@ const Shops = () => {
              p-4"
       >
         <BottomNav></BottomNav>
+      </div>
+      <div className="hidden md:block">
+        <Footer></Footer>
       </div>
     </div>
   );
