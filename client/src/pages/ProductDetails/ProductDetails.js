@@ -48,21 +48,14 @@ const ProductDetails = () => {
         <p>Size:</p>
         <div className="btn-group">
           <input type="radio" name="options" data-title="M" className="btn" />
-          <input type="radio" name="options" data-title="L" className="btn" />
           <input
             type="radio"
             name="options"
-            data-title="XL"
+            data-title="L"
             className="btn"
             defaultChecked
           />
-          <input type="radio" name="options" data-title="XXL" className="btn" />
-          <input
-            type="radio"
-            name="options"
-            data-title="XXXL"
-            className="btn"
-          />
+          <input type="radio" name="options" data-title="XL" className="btn" />
         </div>
       </section>
       <section className="py-4">
