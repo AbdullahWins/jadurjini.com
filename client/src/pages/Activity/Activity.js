@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BottomNav from "../../components/HomeComponents/BottomNav";
+import Footer from "../../components/HomeComponents/Footer";
 import { AuthContext } from "../../contexts/AuthContext";
 import Orders from "../Orders/Orders";
 
@@ -52,6 +53,9 @@ const Activity = () => {
              p-4"
       >
         <BottomNav></BottomNav>
+      </div>
+      <div className="hidden md:block">
+        <Footer></Footer>
       </div>
     </div>
   );
