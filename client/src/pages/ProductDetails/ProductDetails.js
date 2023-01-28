@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const product = useLoaderData();
   const { addToCart } = useContext(AuthContext);
 
   const handleAddToCart = () => {
     addToCart(product, 1);
+    setTimeout(() => {
+      navigate("/");
+    }, 100);
   };
 
   return (
@@ -28,7 +32,11 @@ const ProductDetails = () => {
       </section>
       <section>
         <div className="flex items-center justify-center">
-          <img className="w-full rounded-xl" src={product.productImage} alt="" />
+          <img
+            className="w-full rounded-xl"
+            src={product.productImage}
+            alt=""
+          />
         </div>
         <div className="flex items-center justify-between py-4">
           <div>
