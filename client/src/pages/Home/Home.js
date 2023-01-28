@@ -39,7 +39,7 @@ const Home = () => {
     <div className="flex flex-col h-screen">
       <HomeNav></HomeNav>
       <section>
-        <div className="carousel carousel-center w-full p-2 space-x-2 h-36 md:h-96">
+        <div className="carousel carousel-center p-2 space-x-2 h-36 md:h-96 w-full">
           {bannerSlider.map((slider, i) => (
             <div key={i} className="carousel-item w-full">
               <img src={slider} className="rounded-box w-full" alt="" />
@@ -70,19 +70,19 @@ const Home = () => {
         <h2 className="text-xl pl-2 font-bold md:text-center md:text-4xl md:my-6">
           Order Again
         </h2>
-        <div className="flex flex-row overflow-auto md:grid md:grid-cols-4 w-full p-2 gap-4 h-22 md:h-96">
+        <div className="flex flex-row overflow-auto md:grid md:grid-cols-3 lg:grid-cols-4 w-full p-2 gap-4 h-22 md:h-96">
           {products.map((product, i) => (
             <div key={i} className="w-1/2 md:w-full">
               <Link to={`/products/${product._id}`}>
-                <div className="card card-side bg-slate-200 ">
+                <div className="card card-side bg-slate-200">
                   <figure>
                     <img
-                      className="w-20 h-16 md:w-96 md:h-20"
+                      className="w-20 h-16 md:w-40 md:h-20"
                       src={product.productImage}
                       alt="food"
                     />
                   </figure>
-                  <div className="card-body p-0 px-2 flex flex-col justify-center md:w-96">
+                  <div className="card-body p-0 px-2 flex flex-col justify-center md:w-40">
                     <span className="card-title text-xs">
                       {product.productName}
                     </span>
@@ -112,7 +112,7 @@ const Home = () => {
           Recommendations
         </h2>
         <div
-          className=" grid grid-cols-2 md:grid-cols-4 w-full  md:grid-cols-
+          className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full  md:grid-cols-
          gap-4 p-2"
         >
           {products.map((product, i) => (
