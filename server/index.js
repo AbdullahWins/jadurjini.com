@@ -35,6 +35,9 @@ async function run() {
     const testCartsCollection = client
       .db("jadurjinidb")
       .collection("testCarts");
+    const testOrdersCollection = client
+      .db("jadurjinidb")
+      .collection("testOrders");
 
     //separate apis
     app.get("/users", async (req, res) => {
@@ -65,7 +68,6 @@ async function run() {
 
     app.get("/user", async (req, res) => {
       const userMail = req.query.email;
-      console.log(userMail);
       const query = { email: userMail };
       const user = await usersCollection.findOne(query);
       res.send(user);
@@ -77,6 +79,27 @@ async function run() {
       const query = { _id: ObjectId(id) };
       const product = await testCartsCollection.findOne(query);
       res.send(product);
+    });
+    //orderw
+    app.post("/order", async (req, res) => {
+      const order = req.body;
+      const result = await testOrdersCollection.insertOne(order);
+      res.send(result);
+    });
+
+    app.get("/orders/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { userId: id };
+      const cursor = testOrdersCollection.find(query);
+      const orders = await cursor.toArray();
+      res.send(orders);
+    });
+
+    app.get("/order", async (req, res) => {
+      const query = {};
+      const cursor = testOrdersCollection.find(query);
+      const order = await cursor.toArray();
+      res.send(order);
     });
 
     //products

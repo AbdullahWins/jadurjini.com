@@ -13,6 +13,8 @@ import Shops from "../pages/Shops/Shops";
 import Category from "../pages/Category/Category";
 import Shop from "../pages/Shops/Shop";
 import PrivateRoute from "./PrivateRoute";
+import Shipping from "../pages/Shipping/Shipping";
+import Orders from "../pages/Orders/Orders";
 
 export const routes = createBrowserRouter([
   {
@@ -31,6 +33,11 @@ export const routes = createBrowserRouter([
         path: "/login",
         element: <Login></Login>,
       },
+
+      {
+        path: "/shipping",
+        element: <Shipping></Shipping>,
+      },
       {
         path: "/register",
         element: <Register></Register>,
@@ -40,6 +47,12 @@ export const routes = createBrowserRouter([
         element: <Shop></Shop>,
         loader: ({ params }) =>
           fetch(`${process.env.REACT_APP_baseURL}/shops/${params.shopName}`),
+      },
+      {
+        path: "/order/:email",
+        element: <Orders></Orders>,
+        loader: ({ params }) =>
+          fetch(`${process.env.REACT_APP_baseURL}/order/${params.email}`),
       },
       {
         path: "/products/:id",

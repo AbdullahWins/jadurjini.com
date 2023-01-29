@@ -4,9 +4,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import CartProduct from "./CartProduct";
 
 const Cart = () => {
-  const { user, cart } = useContext(AuthContext);
-  console.log(cart);
-
+  const { user, dbUser, cart, updateCart, subtotal, total, shipping } =
+    useContext(AuthContext);
   return (
     <div className="relative px-4 h-screen">
       <section className="flex items-center justify-between py-4">
@@ -19,33 +18,49 @@ const Cart = () => {
       </section>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cart?.map((product, i) => (
-          <CartProduct product={product} key={i}></CartProduct>
+          <CartProduct
+            product={product}
+            updateCart={updateCart}
+            dbUser={dbUser}
+            key={i}
+          ></CartProduct>
         ))}
       </section>
+      <p className="h-40"></p>
       <section
         className="fixed
              inset-x-0
-             bottom-0 p-4 bg-white"
+             bottom-0 p-4 bg-white md:max-w-6xl m-auto"
       >
         <div className="text-sm font-bold mb-4">
           <div className="flex items-center justify-between">
             <span>SubTotal:</span>
-            <span>BDT 4500</span>
+            <span>BDT {subtotal}</span>
           </div>
           <div className="flex items-center justify-between">
             <span>Shipping:</span>
-            <span>BDT 100</span>
+            <span>BDT {shipping}</span>
           </div>
           <div className="flex items-center justify-between">
             <span>Total:</span>
-            <span>4600</span>
+            <span>BDT {total}</span>
           </div>
         </div>
         <div className="flex items-center justify-around">
           <div className="row-span-2 flex justify-around gap-4">
-            <button className="btn btn-wide btn-sm rounded-3xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
-              Buy Now
-            </button>
+            {cart?.length ? (
+              <Link to="/shipping">
+                <button className="btn btn-wide btn-sm rounded-3xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
+                  Buy Now
+                </button>
+              </Link>
+            ) : (
+              <Link to="/">
+                <button className="btn btn-wide btn-sm rounded-3xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
+                  Browse Products
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </section>

@@ -1,81 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import food1 from "../../assets/food/cake.jpg";
 import BottomNav from "../../components/HomeComponents/BottomNav";
+import Footer from "../../components/HomeComponents/Footer";
+import { AuthContext } from "../../contexts/AuthContext";
+import Orders from "../Orders/Orders";
 
 const Activity = () => {
-  const [products, setProducts] = useState([]);
+  const { dbUser } = useContext(AuthContext);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const url = `${process.env.REACT_APP_baseURL}/testProducts`;
+    if (!dbUser) {
+      return;
+    }
+    const url = `${process.env.REACT_APP_baseURL}/orders/${dbUser?._id}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => setOrders(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [dbUser]);
+  console.log(orders);
 
   return (
     <div className="relative px-4 h-screen">
-      <section className="flex items-center justify-between py-4">
-        <div className="flex items-center justify-center gap-4">
-          <Link to="/">
-            <i className="fa-solid fa-angle-left"></i>
-          </Link>
-          <span className="text-lg font-bold">Activity</span>
-        </div>
-        <p>
-          <Link to="/cart">
-            <i className="fa-solid text-xl fa-bag-shopping"></i>
-          </Link>
-        </p>
-      </section>
-      <section>
-        <p className="my-3 font-bold text-lg">Recent</p>
-        <div className="flex items-center justify-center">
-          <div className="card shadow-xl bg-red-100">
-            <figure>
-              <img className="rounded-xl h-72 w-96" src={food1} alt="food" />
-            </figure>
-            <div className="card-body text-sm gap-0 p-2">
-              <div className="flex items-center justify-between font-bold">
-                <span className="text-lg">Burger</span>
-                <span>
-                  <i className="fa-solid fa-star text-amber-500"></i>4.5
-                </span>
-              </div>
-              <span className="pb-3 text-xs">BDT 150</span>
-              <span>Hideout Cafe</span>
-              <span>Rajshahi, Bangladesh</span>
-            </div>
+      <div>
+        <section className="flex items-center justify-between py-4">
+          <div className="flex items-center justify-center gap-4">
+            <Link to="/">
+              <i className="fa-solid fa-angle-left"></i>
+            </Link>
           </div>
-        </div>
-      </section>
-      <section>
-        {products.map((product, i) => (
-          <Link key={i} to={`/products/${product._id}`}>
-            <div className="card card-side h-28 w-full bg-red-100 shadow-xl my-4">
-              <figure>
-                <img
-                  className="h-32 w-24 rounded-xl"
-                  src={product.productImage}
-                  alt="Movie"
-                />
-              </figure>
-              <div className="card-body flex justify-center gap-0 p-2 text-sm">
-                <span className="font-bold text-lg">{product.productName}</span>
-                <span className="pb-2">BDT {product.productPrice}</span>
-                <span>{product.shopName}</span>
-                <span>{product.shopLocation}</span>
-              </div>
-              <div className="card-actions flex items-center justify-end pr-4">
-                <button>
-                  <i className="fa-solid fa-angle-right"></i>
-                </button>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </section>
+          <p>
+            <Link to="/cart">
+              <i className="fa-solid text-xl fa-bag-shopping"></i>
+            </Link>
+          </p>
+        </section>
+        <section>
+          <p className="my-3 font-bold text-lg">Recent</p>
+          <div className="flex flex-col gap-4 items-center justify-center">
+            {orders.map((order, i) => {
+              return <Orders key={i} order={order}></Orders>;
+            })}
+          </div>
+        </section>
+      </div>
+      <p className="h-24"></p>
       <div
         className="fixed
              inset-x-0
@@ -83,6 +53,9 @@ const Activity = () => {
              p-4"
       >
         <BottomNav></BottomNav>
+      </div>
+      <div className="hidden md:block">
+        <Footer></Footer>
       </div>
     </div>
   );

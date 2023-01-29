@@ -4,7 +4,7 @@ import login from "../../assets/img/login.png";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Register = () => {
-  const { user, createNewUserEmail, updateUser, addUserToDB } =
+  const { createNewUserEmail, updateUser, addUserToDB } =
     useContext(AuthContext);
 
   document.title = "JadurJini | Register";
@@ -60,7 +60,6 @@ const Register = () => {
       });
   };
 
-  console.log(user);
 
   return (
     <div className="md:flex h-screen md:justify-center md:items-center mx-2">

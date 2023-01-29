@@ -1,19 +1,21 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
+import React, { useState } from "react";
 
-const CartProduct = ({ product }) => {
-  const { user } = useContext(AuthContext);
+const CartProduct = ({ product, updateCart }) => {
   const [quantity, setQuantity] = useState(product.quantity);
-  console.log(quantity);
 
   const increaseQuantity = () => {
+    updateCart(product._id, quantity, true);
+    // console.log(quantity, product._id);
     setQuantity(quantity + 1);
   };
   const decreaseQuantity = () => {
-    if (quantity === 1) {
-      return;
+    updateCart(product._id, quantity, false);
+    // console.log(quantity, dbUser._id);
+    if (quantity <= 1) {
+      setQuantity(1);
+    } else {
+      setQuantity(quantity - 1);
     }
-    setQuantity(quantity - 1);
   };
   return (
     <div className="card card-side grid grid-cols-2 bg-red-100 shadow-xl h-36 justify-center">

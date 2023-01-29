@@ -27,6 +27,11 @@ const HomeNav = () => {
                 <span className="badge">New</span>
               </Link>
             </li>
+            <li className="hidden md:block">
+              <Link to="/activity" className="justify-between">
+                Activity
+              </Link>
+            </li>
             <li>
               <Link>Settings</Link>
             </li>

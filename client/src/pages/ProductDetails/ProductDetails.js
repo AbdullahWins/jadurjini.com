@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const product = useLoaderData();
   const { addToCart } = useContext(AuthContext);
 
   const handleAddToCart = () => {
-    addToCart(product);
+    addToCart(product, 1);
+    setTimeout(() => {
+      navigate("/");
+    }, 100);
   };
 
   return (
@@ -28,7 +32,11 @@ const ProductDetails = () => {
       </section>
       <section>
         <div className="flex items-center justify-center">
-          <img className="w-10/12" src={product.productImage} alt="" />
+          <img
+            className="w-full rounded-xl"
+            src={product.productImage}
+            alt=""
+          />
         </div>
         <div className="flex items-center justify-between py-4">
           <div>
@@ -48,31 +56,25 @@ const ProductDetails = () => {
         <p>Size:</p>
         <div className="btn-group">
           <input type="radio" name="options" data-title="M" className="btn" />
-          <input type="radio" name="options" data-title="L" className="btn" />
           <input
             type="radio"
             name="options"
-            data-title="XL"
+            data-title="L"
             className="btn"
             defaultChecked
           />
-          <input type="radio" name="options" data-title="XXL" className="btn" />
-          <input
-            type="radio"
-            name="options"
-            data-title="XXXL"
-            className="btn"
-          />
+          <input type="radio" name="options" data-title="XL" className="btn" />
         </div>
       </section>
       <section className="py-4">
         <p className="font-bold">Description:</p>
         <p>{product.productDescription}</p>
       </section>
+      <p className="h-20"></p>
       <section
         className="fixed
              inset-x-0
-             bottom-0 flex items-center justify-between p-4 bg-white"
+             bottom-0 flex items-center justify-between p-4 bg-white md:max-w-6xl m-auto"
       >
         <p>
           <i className="fa-regular fa-bookmark"></i>
