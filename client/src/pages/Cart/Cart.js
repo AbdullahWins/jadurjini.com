@@ -17,20 +17,57 @@ const Cart = () => {
         </div>
       </section>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {cart?.map((product, i) => (
-          <CartProduct
-            product={product}
-            updateCart={updateCart}
-            dbUser={dbUser}
-            key={i}
-          ></CartProduct>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+          {cart?.map((product, i) => (
+            <CartProduct
+              product={product}
+              updateCart={updateCart}
+              dbUser={dbUser}
+              key={i}
+            ></CartProduct>
+          ))}
+        </div>
+        <div className="hidden md:block p-24">
+          <p className="text-4xl font-bold text-center py-8">Review Order</p>
+          <div className="text-sm font-bold mb-4">
+            <div className="flex items-center justify-between text-xl">
+              <span>SubTotal:</span>
+              <span>{subtotal} tk</span>
+            </div>
+            <div className="flex items-center justify-between text-gray-400 py-2">
+              <span>Shipping:</span>
+              <span>{shipping} tk</span>
+            </div>
+            <div className="flex items-center justify-between text-2xl pb-4">
+              <span>Total:</span>
+              <span>{total} tk</span>
+            </div>
+            <hr />
+          </div>
+          <div className="flex items-center justify-around">
+            <div className="row-span-2 flex justify-around gap-4">
+              {cart?.length ? (
+                <Link to="/shipping">
+                  <button className="btn btn-wide btn-sm rounded-xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
+                    Buy Now
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/">
+                  <button className="btn btn-wide btn-sm rounded-xl bg-gradient-to-r from-purple-600 to-red-600 border-none">
+                    Browse Products
+                  </button>
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
       </section>
       <p className="h-40"></p>
       <section
         className="fixed
              inset-x-0
-             bottom-0 p-4 bg-white md:max-w-6xl m-auto"
+             bottom-0 p-4 bg-white md:max-w-6xl m-auto md:hidden"
       >
         <div className="text-sm font-bold mb-4">
           <div className="flex items-center justify-between">

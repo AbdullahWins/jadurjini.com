@@ -18,7 +18,7 @@ const CartProduct = ({ product, updateCart }) => {
     }
   };
   return (
-    <div className="card card-side grid grid-cols-2 bg-red-100 shadow-xl h-36 justify-center">
+    <div className="card card-side grid grid-cols-2 bg-blue-100 shadow-xl h-36 justify-center">
       <figure>
         <img className="h-36" src={product?.productImage} alt="Movie" />
       </figure>
