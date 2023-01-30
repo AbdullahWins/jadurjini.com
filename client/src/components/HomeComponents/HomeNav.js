@@ -32,9 +32,6 @@ const HomeNav = () => {
                 Activity
               </Link>
             </li>
-            <li>
-              <Link>Settings</Link>
-            </li>
             {user ? (
               <li>
                 <button onClick={logout}>Logout</button>

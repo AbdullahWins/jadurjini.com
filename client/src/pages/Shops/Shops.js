@@ -60,7 +60,10 @@ const Shops = () => {
           <option value="Bogra">Bogra</option>
         </select>
       </div>
-      <div className="flex items-center justify-center">
+      <hr />
+      <p className="text-3xl text-center font-bold py-4">Browse By Shop</p>
+      <hr />
+      <div className="flex items-center justify-center py-4">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {newShops?.map((shop, i) => (
             <div

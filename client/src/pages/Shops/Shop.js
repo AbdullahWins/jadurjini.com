@@ -64,32 +64,30 @@ const Shop = () => {
         <section>
           <section>
             <div className="flex flex-row overflow-auto over py-2">
-              {categorySlider?.map((slider, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col items-center justify-center carousel-item bg-gray-400 rounded-md p-4 m-2 h-10 w-10 md:h-52 md:w-52"
-                >
-                  <Link to={`/subCategory/${slider?.categoryName}`}>
-                    <div className="flex flex-col items-center justify-center">
-                      <img
-                        src={slider.categoryImg}
-                        className="rounded-box h-8 w-8 md:h-36 md:w-36"
-                        alt=""
-                      />
-                      <p className="">{slider.categoryName}</p>
-                    </div>
-                  </Link>
-                </div>
+              {categorySlider.map((slider, i) => (
+                <Link key={i} to={`/category/${slider.categoryName}`}>
+                  <div className="flex flex-col items-center justify-center text-center carousel-item bg-green-100 rounded-md p-4 m-2 h-10 w-10 md:h-32 md:w-32">
+                    <img
+                      src={slider.categoryImg}
+                      className="rounded-box m-0 mt-3 h-8 w-8 md:h-24 md:w-24"
+                      alt=""
+                    />
+                    <p className="m-0 mb-2 md:text-2xl">
+                      {slider.categoryName}
+                    </p>
+                  </div>
+                </Link>
               ))}
             </div>
           </section>
         </section>
-        <section className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 m-4">
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 m-4">
           {shops.map((product, i) => (
             <Product key={i} product={product}></Product>
           ))}
         </section>
       </div>
+      <p className="py-10"></p>
       <div
         className="fixed
              inset-x-0
