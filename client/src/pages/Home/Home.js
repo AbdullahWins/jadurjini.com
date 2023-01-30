@@ -148,7 +148,7 @@ const Home = () => {
           {products?.map((product, i) => (
             <Link key={i} to={`/products/${product._id}`}>
               <div>
-                <div className="card w-52 shadow-xl bg-gray-100 border-solid border-2 border-gray-200">
+                <div className="card w-48 shadow-xl bg-gray-100 rounded-lg">
                   <figure>
                     <img
                       className="h-32 w-48 md:h-44 md:w-full"
