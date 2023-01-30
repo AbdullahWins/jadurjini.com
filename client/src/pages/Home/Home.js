@@ -79,7 +79,7 @@ const Home = () => {
           {products.map((product, i) => (
             <div key={i} className="w-1/2 md:w-full">
               <Link to={`/products/${product._id}`}>
-                <div className="card card-side bg-slate-200 rounded-md">
+                <div className="card card-side rounded-md border-solid border-2 border-gray-200 shadow-lg">
                   <figure>
                     <img
                       className="w-20 h-20 md:w-40 md:h-40"
@@ -89,7 +89,7 @@ const Home = () => {
                   </figure>
                   <div className="card-body p-2 flex flex-col justify-around w-32 md:w-40">
                     <div className="flex items-center justify-between">
-                      <span className="card-title text-xs md:text-sm">
+                      <span className="font-bold card-title text-xs md:text-lg">
                         {product.productName}
                       </span>
                       <span className="font-bold bg-green-400 text-xs md:text-sm px-2 rounded-full">
@@ -98,10 +98,10 @@ const Home = () => {
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs md:text-lg font-bold">
+                      <span className="text-xs md:text-sm font-bold">
                         Price:
                       </span>
-                      <span className="font-bold bg-red-200 px-2 text-xs md:text-lg rounded-full">
+                      <span className="font-bold bg-red-200 px-2 text-xs md:text-sm rounded-full">
                         {product.productPrice} tk
                       </span>
                     </div>
@@ -111,7 +111,9 @@ const Home = () => {
                       </span>
                       <span className=" flex items-center font-bold bg-blue-400 px-1 text-gray-100 rounded-full text-xs md:text-lg">
                         <i class="fa-regular fa-circle-check text-xs md:text-lg"></i>
-                        <span className="hidden md:block text-xs md:text-sm">Verified</span>
+                        <span className="hidden md:block text-xs md:text-sm">
+                          Verified
+                        </span>
                       </span>
                     </div>
                   </div>
@@ -142,13 +144,13 @@ const Home = () => {
         </h2>
         <hr />
         <div
-          className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full  md:grid-cols-
+          className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full md:grid-cols-
          gap-12 p-2"
         >
           {products?.map((product, i) => (
             <Link key={i} to={`/products/${product._id}`}>
               <div>
-                <div className="card w-48 shadow-xl bg-gray-100 rounded-lg">
+                <div className="card w-48 shadow-xl bg-gray-100 rounded-lg border-solid border-2 border-gray-200">
                   <figure>
                     <img
                       className="h-32 w-48 md:h-44 md:w-full"
@@ -156,7 +158,7 @@ const Home = () => {
                       alt="foods again"
                     />
                   </figure>
-                  <div className="card-body p-3">
+                  <div className="card-body p-3 pb-0">
                     <div className="flex items-center justify-around">
                       <p className="font-bold">{product?.productName}</p>
                       <span className="font-bold bg-green-400 px-2 rounded-full">
@@ -164,13 +166,13 @@ const Home = () => {
                         <i class="fa-solid fa-star text-sm"></i>
                       </span>
                     </div>
-                    <p className="text-xs text-gray-400 m-0">
+                    <p className="text-xs text-gray-400">
                       {product?.productCategory}
                     </p>
                     <p className="font-bold">BDT: {product?.productPrice} tk</p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <p className="text-lg text-gray-400 p-2">
+                    <p className="text-lg text-gray-400 pl-3 pb-2">
                       {product?.shopName}
                     </p>
                     <span className="font-bold bg-blue-400 px-1 mr-2 text-gray-100 rounded-full">
