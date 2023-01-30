@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import Orders from "../Orders/Orders";
 
 const Activity = () => {
-  const { dbUser } = useContext(AuthContext);
+  const { cart,dbUser } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -30,11 +30,14 @@ const Activity = () => {
               <i className="fa-solid fa-angle-left"></i>
             </Link>
           </div>
-          <p>
-            <Link to="/cart">
+          <Link to="/cart">
+          <button className="btn btn-ghost btn-circle">
+            <div className="indicator">
               <i className="fa-solid text-xl fa-bag-shopping"></i>
-            </Link>
-          </p>
+              <span className="badge badge-xs badge-primary indicator-item">{cart?.length}</span>
+            </div>
+          </button>
+        </Link>
         </section>
         <section>
           <p className="my-3 font-bold text-lg">Recent</p>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Product from "../ProductDetails/Product";
 import slide1 from "../../assets/slides/slide1.png";
@@ -13,8 +13,10 @@ import category3 from "../../assets/category/category3.png";
 import category4 from "../../assets/category/category4.png";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 import Footer from "../../components/HomeComponents/Footer";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Shop = () => {
+  const { cart } = useContext(AuthContext);
   const shops = useLoaderData();
   const bannerSlider = [slide1, slide2, slide3, slide4, slide5, slide6];
   const categorySlider = [
@@ -34,11 +36,16 @@ const Shop = () => {
             <i className="fa-solid fa-angle-left"></i>
           </Link>
         </div>
-        <p>
-          <Link to="/cart">
-            <i className="fa-solid text-xl fa-bag-shopping"></i>
-          </Link>
-        </p>
+        <Link to="/cart">
+          <button className="btn btn-ghost btn-circle">
+            <div className="indicator">
+              <i className="fa-solid text-xl fa-bag-shopping"></i>
+              <span className="badge badge-xs badge-primary indicator-item">
+                {cart?.length}
+              </span>
+            </div>
+          </button>
+        </Link>
       </section>
       <div className="flex flex-col">
         <section>

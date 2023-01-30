@@ -4,7 +4,7 @@ import background from "../../assets/img/bg.png";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const HomeNav = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, cart, logout } = useContext(AuthContext);
   return (
     <div className="navbar bg-base-100 px-2 py-2">
       <div className="navbar-start">
@@ -59,7 +59,7 @@ const HomeNav = () => {
           <button className="btn btn-ghost btn-circle">
             <div className="indicator">
               <i className="fa-solid text-xl fa-bag-shopping"></i>
-              {/* <span className="badge badge-xs badge-primary indicator-item"></span> */}
+              <span className="badge badge-xs badge-primary indicator-item">{cart?.length}</span>
             </div>
           </button>
         </Link>

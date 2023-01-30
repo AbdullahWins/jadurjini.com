@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 const ProductDetails = () => {
   const navigate = useNavigate();
   const product = useLoaderData();
-  const { addToCart } = useContext(AuthContext);
+  const { cart, addToCart } = useContext(AuthContext);
 
   const handleAddToCart = () => {
     addToCart(product, 1);
@@ -23,11 +23,14 @@ const ProductDetails = () => {
           </Link>
         </p>
         <div className="flex gap-4">
-          <p>
-            <Link to="/cart">
+        <Link to="/cart">
+          <button className="btn btn-ghost btn-circle">
+            <div className="indicator">
               <i className="fa-solid text-xl fa-bag-shopping"></i>
-            </Link>
-          </p>
+              <span className="badge badge-xs badge-primary indicator-item">{cart?.length}</span>
+            </div>
+          </button>
+        </Link>
         </div>
       </section>
       <section>

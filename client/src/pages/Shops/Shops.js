@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import BottomNav from "../../components/HomeComponents/BottomNav";
 import Footer from "../../components/HomeComponents/Footer";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Shops = () => {
   const shops = useLoaderData();
   const [newShops, setNewShops] = useState();
+  const { cart } = useContext(AuthContext);
 
   useEffect(() => {
     let newShopNames = [];
@@ -36,11 +38,16 @@ const Shops = () => {
             <i className="fa-solid fa-angle-left"></i>
           </Link>
         </div>
-        <p>
-          <Link to="/cart">
-            <i className="fa-solid text-xl fa-bag-shopping"></i>
-          </Link>
-        </p>
+        <Link to="/cart">
+          <button className="btn btn-ghost btn-circle">
+            <div className="indicator">
+              <i className="fa-solid text-xl fa-bag-shopping"></i>
+              <span className="badge badge-xs badge-primary indicator-item">
+                {cart?.length}
+              </span>
+            </div>
+          </button>
+        </Link>
       </section>
       <div className="flex align-center justify-center mb-4">
         <select
