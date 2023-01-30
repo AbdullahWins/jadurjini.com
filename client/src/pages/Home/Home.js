@@ -94,7 +94,7 @@ const Home = () => {
                       </span>
                       <span className="font-bold bg-green-400 text-xs md:text-sm px-2 rounded-full">
                         {product?.productRating}
-                        <i class="fa-solid fa-star text-xs md:text-sm"></i>
+                        <i className="fa-solid fa-star text-xs md:text-sm"></i>
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
@@ -110,7 +110,7 @@ const Home = () => {
                         {product.shopName}
                       </span>
                       <span className=" flex items-center font-bold bg-blue-400 px-1 text-gray-100 rounded-full text-xs md:text-lg">
-                        <i class="fa-regular fa-circle-check text-xs md:text-lg"></i>
+                        <i className="fa-regular fa-circle-check text-xs md:text-lg"></i>
                         <span className="hidden md:block text-xs md:text-sm">
                           Verified
                         </span>
@@ -163,7 +163,7 @@ const Home = () => {
                       <p className="font-bold">{product?.productName}</p>
                       <span className="font-bold bg-green-400 px-2 rounded-full">
                         {product?.productRating}
-                        <i class="fa-solid fa-star text-sm"></i>
+                        <i className="fa-solid fa-star text-sm"></i>
                       </span>
                     </div>
                     <p className="text-xs text-gray-400">
@@ -176,7 +176,7 @@ const Home = () => {
                       {product?.shopName}
                     </p>
                     <span className="font-bold bg-blue-400 px-1 mr-2 text-gray-100 rounded-full">
-                      <i class="fa-regular fa-circle-check"></i>
+                      <i className="fa-regular fa-circle-check"></i>
                       Verified
                     </span>
                   </div>

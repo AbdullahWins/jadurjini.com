@@ -27,12 +27,18 @@ const Category = () => {
           </button>
         </Link>
       </section>
-      <p className="text-xl font-bold text-center">
-        Viewing subCategory:{category[0]?.subCategory}
+      <hr />
+      <p className="text-3xl font-bold text-center py-4">
+        <span>Viewing Sub Category: </span>'
+        <span className="text-green-400">
+          {category[0]?.productSubCategory}
+        </span>
+        '
       </p>
+      <hr />
       <div
-        className=" grid grid-cols-2 md:grid-cols-
-         gap-4 p-2"
+        className=" grid grid-cols-2 md:grid-cols-4 
+         gap-4 pt-4"
       >
         {category?.map((product, i) => (
           <Product key={i} product={product}></Product>
