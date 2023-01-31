@@ -5,7 +5,11 @@ import BottomNav from "../../components/HomeComponents/BottomNav";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Profile = () => {
-  const { user, dbUser } = useContext(AuthContext);
+  const { user, dbUser, updateUserToDB } = useContext(AuthContext);
+
+  const handleClick = () => {
+    updateUserToDB();
+  };
 
   return (
     <div className="relative px-4 h-screen">
@@ -17,7 +21,9 @@ const Profile = () => {
           <span className="text-lg font-bold">Profile</span>
         </div>
         <p>
-          <i className="fa-solid fa-pen-to-square text-cyan-500"></i>
+          <button onClick={handleClick}>
+            <i className="fa-solid fa-pen-to-square text-cyan-500 bg-red-600"></i>
+          </button>
         </p>
       </section>
       <section className="flex flex-col items-center justify-center p-4">

@@ -73,6 +73,24 @@ async function run() {
       res.send(user);
     });
 
+    app.patch("/user", async (req, res) => {
+      const userMail = req.body.user.email;
+      const userName = req.body.dbNewUser.name;
+      const userPhone = req.body.dbNewUser.phoneNumber;
+      const userPassword = req.body.dbNewUser.password;
+      console.log(userMail, userName);
+      const newvalues = {
+        $set: {
+          name: userName,
+          phoneNumber: userPhone,
+          password: userPassword,
+        },
+      };
+      const query = { email: userMail };
+      const updatedUser = await usersCollection.updateOne(query, newvalues);
+      res.send(updatedUser);
+    });
+
     //cart
     app.get("/testCart/:id", async (req, res) => {
       const id = req.params.id;

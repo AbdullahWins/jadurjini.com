@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updatePassword,
 } from "firebase/auth";
 import firebaseApp from "../firebase/firebase.config";
 
@@ -93,10 +94,53 @@ const AuthProvider = ({ children }) => {
       res.json();
     });
   };
-
   const updateUser = (profile) => {
     setLoading(true);
     return updateProfile(auth.currentUser, profile);
+  };
+
+  const updateUserPassword = (newPassword) => {
+    if (!user) {
+      return;
+    }
+    updatePassword(user, newPassword)
+      .then(() => {
+        console.log("success");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const updateUserToDB = () => {
+    if (!user) {
+      return;
+    }
+    const newName = "naam nai" || dbUser?.name;
+    const newPhoneNumber = "number nai" || dbUser?.phoneNumber;
+    const newPassword = "nopassword" || dbUser?.password;
+    const dbNewUser = {
+      name: newName,
+      phoneNumber: newPhoneNumber,
+      password: newPassword,
+    };
+    const firebaseNewUser = {
+      displayName: newName,
+      password: newPassword,
+    };
+    updateUser(firebaseNewUser);
+    updateUserPassword(newPassword);
+
+    console.log(user);
+    fetch(`http://localhost:5000/user`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ user, dbNewUser }),
+    }).then((res) => {
+      res.json();
+    });
   };
 
   const providerLogin = (provider) => {
@@ -140,6 +184,7 @@ const AuthProvider = ({ children }) => {
     logout,
     loading,
     addUserToDB,
+    updateUserToDB,
     cart,
     setCart,
     addToCart,

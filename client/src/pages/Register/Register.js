@@ -60,7 +60,6 @@ const Register = () => {
       });
   };
 
-
   return (
     <div className="md:flex h-screen md:justify-center md:items-center mx-2">
       <div className="card lg:w-96 bg-base-100">
