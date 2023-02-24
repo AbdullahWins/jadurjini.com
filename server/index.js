@@ -113,6 +113,23 @@ async function run() {
       res.send(orders);
     });
 
+    app.patch("/orders/:id", async (req, res) => {
+      const id = req.params.id;
+      const activeOrderValue = req.body.activeOrder;
+      console.log(activeOrder);
+      const newvalues = {
+        $set: {
+          activeOrder: activeOrderValue,
+        },
+      };
+      const query = { userId: id };
+      const updatedOrder = await testOrdersCollection.updateOne(
+        query,
+        newvalues
+      );
+      res.send(updatedOrder);
+    });
+
     app.get("/order", async (req, res) => {
       const query = {};
       const cursor = testOrdersCollection.find(query);
